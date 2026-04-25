@@ -9,8 +9,19 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 
 const App = () => (
-  /* Merged width attributes into one sx prop for responsiveness */
-  <Box sx={{ width: { xl: '1488px' } }} width="100%" m="auto">
+  <Box 
+    sx={{ 
+      width: { xl: '1488px' },
+      /* THE FIX: Ensures absolute positioned images (Hero Banner) 
+         aren't cut off at the top */
+      overflowY: 'visible',
+      position: 'relative',
+      minHeight: '100vh',
+      backgroundColor: '#080808' // Matches your --bg-black
+    }} 
+    width="100%" 
+    m="auto"
+  >
     <Navbar />
     <Routes>
       <Route path="/" element={<Home />} />

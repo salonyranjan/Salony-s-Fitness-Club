@@ -1,4 +1,11 @@
-/* --- 1. THEME VARIABLES --- */
+/* ========================================
+   CYBERPUNK FITNESS APP - COMPLETE STYLESHEET
+   Organized: Variables | Reset | Base | Components | Utilities | Responsive
+   Features: Glassmorphism, Neon Effects, Material-UI Overrides
+   Target: React Exercise App (Search, Cards, Details)
+======================================= */
+
+/* --- 1. CSS CUSTOM PROPERTIES (VARIABLES) --- */
 :root {
   --neon-red: #FF2625;
   --neon-blue: #00D2FF;
@@ -8,7 +15,7 @@
   --smooth-curve: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-/* --- 2. GLOBAL RESET & BASE --- */
+/* --- 2. RESET & BASE STYLES --- */
 * {
   padding: 0;
   margin: 0;
@@ -20,144 +27,327 @@ body {
   background-color: var(--bg-black) !important;
   color: #FFFFFF;
   overflow-x: hidden;
+  position: relative;
 }
 
-/* Custom Professional Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
+/* Cyber-Gradient Scrollbar */
+::-webkit-scrollbar { 
+  width: 6px; 
 }
-::-webkit-scrollbar-track {
-  background: #000;
+::-webkit-scrollbar-track { 
+  background: #000; 
 }
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, var(--neon-red), var(--neon-blue));
   border-radius: 10px;
 }
 
-/* --- 3. HERO BANNER --- */
-.hero-banner-img {
-  position: absolute;
-  right: 50px;
-  top: 80px; 
-  width: 580px; 
-  height: auto;
-  z-index: -1;
-  object-fit: contain;
-  filter: drop-shadow(0 0 30px rgba(255, 38, 37, 0.15));
+/* Root Container Fixes */
+#root, .App {
+  overflow-x: hidden;
+  overflow-y: visible !important;
 }
 
-/* --- 4. NAVIGATION & INTERACTIVE NEON --- */
-.nav-link-exercises {
-  position: relative;
+/* --- 3. TYPOGRAPHY & ANIMATIONS --- */
+@keyframes neonPulse {
+  from { 
+    text-shadow: 0 0 5px var(--neon-red); 
+    box-shadow: 0 4px 10px -2px rgba(255, 38, 37, 0.3); 
+  }
+  to { 
+    text-shadow: 0 0 15px var(--neon-red); 
+    box-shadow: 0 4px 20px 0px rgba(255, 38, 37, 0.7); 
+  }
+}
+
+.detail-name-text {
+  background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+/* --- 4. NAVIGATION --- */
+.navbar-links-container {
+  display: flex !important;
+  gap: 50px !important; 
+  align-items: center !important;
+}
+
+.navbar-links-container a {
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 10px;
   transition: all 0.3s var(--smooth-curve);
-  opacity: 0.8;
+  white-space: nowrap;
 }
 
 .nav-link-exercises:hover {
-  opacity: 1;
   color: var(--neon-blue) !important;
-  text-shadow: 0 0 15px var(--neon-blue), 0 0 30px rgba(0, 210, 255, 0.4);
+  text-shadow: 0 0 15px var(--neon-blue);
   transform: translateY(-2px);
 }
 
-/* Home Link Underline Pulse */
-a[style*="borderBottom"] {
-  animation: neonPulse 2s infinite alternate;
+/* Active Underline Pulse */
+a[style*="borderBottom"] { 
+  animation: neonPulse 2s infinite alternate; 
 }
 
-@keyframes neonPulse {
-  from { text-shadow: 0 0 5px var(--neon-red); box-shadow: 0 4px 10px -2px rgba(255, 38, 37, 0.3); }
-  to { text-shadow: 0 0 15px var(--neon-red); box-shadow: 0 4px 20px 0px rgba(255, 38, 37, 0.7); }
+/* --- 5. SEARCH & HERO SECTION --- */
+.SearchExercises-container, #search-section {
+  margin-top: 150px !important;
+  position: relative;
+  z-index: 20;
 }
 
-/* --- 5. SEARCH SECTION --- */
+.hero-banner-img {
+  position: absolute;
+  right: 40px;
+  top: -240px; 
+  width: 650px; 
+  height: auto;
+  z-index: 10;
+  object-fit: contain;
+  filter: drop-shadow(0 0 40px rgba(255, 38, 37, 0.3));
+}
+
+.MuiTextField-root {
+  transition: all 0.3s var(--smooth-curve);
+}
+
 .MuiInputBase-input::placeholder {
   color: rgba(255, 255, 255, 0.4) !important;
+  opacity: 1;
+  font-weight: 400;
 }
 
 .search-btn {
+  border: 1px solid rgba(255, 38, 37, 0.2) !important;
   transition: all 0.4s var(--smooth-curve) !important;
-  box-shadow: 0 4px 15px rgba(255, 38, 37, 0.2) !important;
+  overflow: hidden;
+  position: relative;
 }
 
-.search-btn:hover {
+.search-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
+}
+
+.search-btn:hover::before {
+  left: 100%;
+}
+
+.search-btn:hover, .explore-btn:hover {
+  letter-spacing: 1.5px;
   background-color: #ff4d4d !important;
-  box-shadow: 0 0 25px var(--neon-red) !important;
-  letter-spacing: 1px;
+  box-shadow: 0 0 30px var(--neon-red), 0 0 10px rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.05);
 }
 
-/* --- 6. CATEGORY & EXERCISE CARDS --- */
 .react-horizontal-scrolling-menu--wrapper {
-  padding: 60px 0 !important;
-  background-color: transparent !important;
+  margin-top: 20px;
+  padding: 40px 0 !important;
+  background: transparent !important;
 }
 
-/* CRITICAL FIX: This separates the cards to stop the "Wall" look */
-.react-horizontal-scrolling-menu--item {
-  padding: 0 25px !important; 
-}
-
-.react-horizontal-scrolling-menu--inner-wrapper::-webkit-scrollbar {
-  display: none;
-}
-
-.bodyPart-card, .exercise-card {
-  background: var(--glass-bg) !important;
-  backdrop-filter: blur(12px);
-  border: 1px solid var(--glass-border) !important;
-  transition: all 0.4s var(--smooth-curve) !important;
-}
-
-.bodyPart-card:hover, .exercise-card:hover {
-  background: rgba(255, 255, 255, 0.08) !important;
-  border-top: 4px solid var(--neon-blue) !important;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.2) !important;
-  transform: translateY(-12px);
+/* --- 6. EXERCISE CARDS & GRIDS --- */
+#exercises .MuiStack-root {
+  gap: 40px !important;
+  justify-content: center !important;
+  flex-wrap: wrap !important;
+  padding: 40px 20px;
 }
 
 .exercise-card {
-  width: 360px; /* Essential for a professional balanced look */
-  background: rgba(255, 255, 255, 0.05) !important;
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
-  border-top: 4px solid #FF2625 !important;
-  border-radius: 20px !important;
+  width: 380px !important; 
+  height: 420px !important;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  border-top: 5px solid var(--neon-red) !important;
+  border-radius: 25px !important;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
+  transition: all 0.4s var(--smooth-curve) !important;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .exercise-card:hover {
-  transform: translateY(-10px);
-  border-color: #00D2FF !important;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
+  transform: translateY(-12px) scale(1.02);
+  border-color: var(--neon-blue) !important;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 210, 255, 0.2) !important;
 }
 
-/* --- 7. ARROWS --- */
-.right-arrow, .left-arrow {
-  cursor: pointer;
-  color: var(--neon-red);
-  filter: drop-shadow(0 0 8px var(--neon-red));
+/* 2-Card Similar Exercises Row */
+.similar-row .react-horizontal-scrolling-menu--item {
+  width: calc(50% - 40px) !important; 
+  padding: 0 !important;
+  margin: 0 20px !important;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.similar-row .exercise-card {
+  width: 100% !important; 
+  max-width: 600px;
+}
+
+/* Arrows */
+.left-arrow, .right-arrow {
+  cursor: pointer !important;
+  user-select: none;
+  z-index: 100;
+  background: rgba(0, 0, 0, 0.8) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 50%;
+  padding: 10px;
   transition: 0.3s var(--smooth-curve);
-  margin: 0 20px;
 }
 
-.right-arrow:hover, .left-arrow:hover {
-  color: var(--neon-blue);
-  filter: drop-shadow(0 0 12px var(--neon-blue));
-  transform: scale(1.2);
+.left-arrow:hover, .right-arrow:hover {
+  transform: scale(1.3);
+  filter: drop-shadow(0 0 15px var(--neon-blue));
 }
 
-/* --- 8. RESPONSIVE --- */
+/* --- 7. CATEGORY & BODY PART CARDS --- */
+.bodyPart-card {
+  width: 270px;
+  height: 280px;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  border-radius: 0 0 20px 20px;
+  transition: all 0.4s var(--smooth-curve) !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bodyPart-card:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  border-top: 4px solid var(--neon-blue) !important;
+  transform: translateY(-10px);
+}
+
+/* --- 8. DETAIL PAGE --- */
+.detail-container {
+  min-height: 100vh;
+  background-color: var(--bg-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-image-wrapper {
+  background: #FFFFFF;
+  border-radius: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  box-shadow: 0 0 50px rgba(255, 38, 37, 0.15), 
+              inset 0 0 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.4s var(--smooth-curve);
+}
+
+.detail-image-wrapper:hover {
+  transform: scale(1.02);
+}
+
+.detail-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 20px;
+}
+
+.detail-icon-btn {
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 50% !important;
+  transition: all 0.3s ease !important;
+}
+
+.detail-icon-btn:hover {
+  background: rgba(255, 255, 255, 0.1) !important;
+  transform: rotate(10deg);
+}
+
+.detail-icon-btn img {
+  width: 40px;
+  height: 40px;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+/* --- 9. RESPONSIVE DESIGN --- */
 @media screen and (max-width: 1200px) {
-  .hero-banner-img { display: none; }
-  .detail-image { width: 100%; height: auto; }
-  .exercise-card { width: 300px; }
-  
-  .left-arrow, .right-arrow {
-    position: static !important;
-    display: inline-flex;
-    margin-top: 30px;
+  .hero-banner-img { 
+    display: none; 
+  }
+  .exercise-card { 
+    width: 320px; 
+    height: 440px; 
+  }
+  .navbar-links-container { 
+    gap: 20px !important; 
+  }
+  .detail-image-wrapper {
+    width: 100% !important;
+    height: 400px !important;
+    margin-bottom: 30px;
+  }
+  .MuiTextField-root {
+    width: 350px !important;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .similar-row .react-horizontal-scrolling-menu--item {
+    width: calc(85% - 20px) !important;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .exercise-card { 
+    width: 100% !important; 
+    height: auto !important; 
+    margin-bottom: 20px;
+  }
+  .similar-row .react-horizontal-scrolling-menu--item {
+    width: calc(100% - 40px) !important;
+  }
+  .detail-image-wrapper {
+    height: 300px !important;
+    border-radius: 25px;
+  }
+  .detail-icon-btn {
+    width: 60px !important;
+    height: 60px !important;
+  }
+  .detail-icon-btn img {
+    width: 30px;
+    height: 30px;
+  }
+  .MuiTextField-root {
+    width: 300px !important;
+  }
+  .search-btn {
+    width: 80px !important;
+    font-size: 12px !important;
   }
 }

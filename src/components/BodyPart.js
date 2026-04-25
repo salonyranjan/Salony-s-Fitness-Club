@@ -5,28 +5,26 @@ import Icon from '../assets/icons/gym.png';
 const BodyPart = ({ item, setBodyPart, bodyPart }) => (
   <Stack
     type="button"
-    alignItems="center"
-    justifyContent="center"
+    alignItems="center" // Centers items horizontally
+    justifyContent="center" // Centers items vertically
     className="bodyPart-card"
     sx={{
-      /* Change 1: Dark Glassmorphism Background */
-      background: bodyPart === item ? '#1a1a1a' : 'rgba(255, 255, 255, 0.05)', 
+      background: bodyPart === item ? 'rgba(255, 255, 255, 0.1)' : 'rgba(255, 255, 255, 0.03)', 
       backdropFilter: 'blur(10px)',
       borderBottomLeftRadius: '20px',
       width: '270px',
       height: '282px',
       cursor: 'pointer',
-      gap: '47px',
-      /* Change 2: Neon Borders and Glows */
+      gap: '40px', // Proper gap between icon and text
       border: '1px solid rgba(255, 255, 255, 0.1)',
       borderTop: bodyPart === item ? '4px solid #FF2625' : '1px solid rgba(255, 255, 255, 0.1)',
-      boxShadow: bodyPart === item ? '0 0 20px rgba(255, 38, 37, 0.5)' : 'none',
-      transition: 'all 0.3s ease-in-out',
+      boxShadow: bodyPart === item ? '0 0 20px rgba(255, 38, 37, 0.4)' : 'none',
+      transition: 'all 0.3s cubic-bezier(0.25, 1, 0.5, 1)',
       '&:hover': {
-        background: '#1a1a1a',
+        background: 'rgba(255, 255, 255, 0.1)',
         borderTop: '4px solid #00D2FF',
-        boxShadow: '0 0 20px rgba(0, 210, 255, 0.5)',
-        transform: 'scale(1.03)'
+        boxShadow: '0 0 25px rgba(0, 210, 255, 0.3)',
+        transform: 'translateY(-10px)'
       }
     }}
     onClick={() => {
@@ -34,26 +32,29 @@ const BodyPart = ({ item, setBodyPart, bodyPart }) => (
       window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
     }}
   >
-    {/* Change 3: Invert Icon color to make it visible on dark bg and add glow */}
     <img 
       src={Icon} 
       alt="dumbbell" 
       style={{ 
-        width: '40px', 
-        height: '40px', 
-        filter: 'invert(1) drop-shadow(0 0 5px #FF2625)' 
+        width: '60px', // Made icon larger
+        height: '60px', 
+        filter: bodyPart === item ? 'invert(1) drop-shadow(0 0 8px #FF2625)' : 'invert(1) opacity(0.5)',
+        transition: '0.3s'
       }} 
     />
     
-    {/* Change 4: Typography color to White with Neon Shadow */}
     <Typography
-      fontSize="24px"
-      fontWeight="bold"
-      fontFamily="Alegreya"
+      /* Big and Bold Typography Fix */
+      fontSize="28px" 
+      fontWeight="800" // Extra Bold
+      fontFamily="Josefin Sans" 
       color="#fff" 
       textTransform="capitalize"
       sx={{
-        textShadow: bodyPart === item ? '0 0 10px #FF2625' : 'none'
+        letterSpacing: '2px',
+        textShadow: bodyPart === item ? '0 0 15px rgba(255, 38, 37, 0.8)' : 'none',
+        opacity: bodyPart === item ? 1 : 0.7,
+        textAlign: 'center'
       }}
     >
       {item}

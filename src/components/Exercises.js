@@ -8,6 +8,7 @@ import Loader from './Loader';
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
+  // Using 6 per page keeps the grid looking balanced and premium
   const [exercisesPerPage] = useState(6);
 
   useEffect(() => {
@@ -20,26 +21,31 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=1000`, exerciseOptions);
       }
 
-      setExercises(exercisesData);
+      // Safety check: ensure we are setting an array
+      setExercises(Array.isArray(exercisesData) ? exercisesData : []);
       setCurrentPage(1);
     };
 
     fetchExercisesData();
   }, [bodyPart, setExercises]);
 
+  // Pagination Logic
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
   
+  // Guard against non-array values to prevent map errors
   const currentExercises = Array.isArray(exercises) 
     ? exercises.slice(indexOfFirstExercise, indexOfLastExercise) 
     : [];
 
   const paginate = (event, value) => {
     setCurrentPage(value);
-    window.scrollTo({ top: 1800, behavior: 'smooth' });
+    // Scrolls back up to the "Showing Results" title
+    window.scrollTo({ top: 1100, behavior: 'smooth' });
   };
 
-  if (!currentExercises.length && exercises.length === 0) return <Loader />;
+  // Show loader while fetching
+  if (!exercises?.length) return <Loader />;
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
@@ -50,7 +56,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
           fontSize: { lg: '44px', xs: '30px' },
           color: '#fff',
           textShadow: '0 0 10px rgba(255, 255, 255, 0.2)',
-          mb: '46px'
+          mb: '46px',
+          fontFamily: 'Josefin Sans'
         }}
       >
         Showing Results
@@ -58,12 +65,15 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       <Stack
         direction="row"
-        sx={{ gap: { lg: '107px', xs: '50px' } }}
+        sx={{ 
+          gap: { lg: '80px', xs: '40px' }, // Optimized gap for your 380px cards
+          justifyContent: 'center'
+        }}
         flexWrap="wrap"
-        justifyContent="center"
       >
         {currentExercises.map((exercise, idx) => (
-          <ExerciseCard key={idx} exercise={exercise} />
+          // Use exercise.id as key for better React performance
+          <ExerciseCard key={exercise.id || idx} exercise={exercise} />
         ))}
       </Stack>
 
@@ -71,26 +81,29 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         {exercises.length > exercisesPerPage && (
           <Pagination
             shape="rounded"
-            defaultPage={1}
             count={Math.ceil(exercises.length / exercisesPerPage)}
             page={currentPage}
             onChange={paginate}
             size="large"
-            /* Professional Neon Styling for Pagination */
+            /* Cyber-Neon Pagination Styling */
             sx={{
               '& .MuiPaginationItem-root': {
-                color: '#fff', // White text for page numbers
+                color: '#fff',
                 fontFamily: 'Josefin Sans',
                 fontSize: '18px',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
+                transition: '0.3s all ease',
                 '&:hover': {
-                  backgroundColor: 'rgba(0, 210, 255, 0.1)',
+                  backgroundColor: 'rgba(0, 210, 255, 0.2)',
                   borderColor: '#00D2FF',
+                  boxShadow: '0 0 10px #00D2FF'
                 },
                 '&.Mui-selected': {
-                  backgroundColor: '#FF2625 !important', // Neon Red for active page
+                  backgroundColor: '#FF2625 !important', 
                   color: '#fff',
-                  boxShadow: '0 0 15px #FF2625',
+                  fontWeight: 'bold',
+                  boxShadow: '0 0 20px #FF2625',
+                  borderColor: 'transparent'
                 },
               },
             }}

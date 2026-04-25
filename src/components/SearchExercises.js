@@ -39,7 +39,9 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             item.bodyPart.toLowerCase().includes(search)
         );
 
-        window.scrollTo({ top: 1800, left: 100, behavior: 'smooth' });
+        // Moves the view to the results grid
+        window.scrollTo({ top: 1800, behavior: 'smooth' });
+        
         setSearch('');
         setExercises(searchedExercises);
       }
@@ -48,13 +50,13 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
 
   return (
     <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
-      {/* Title with Neon Glow */}
       <Typography 
         fontWeight={700} 
         sx={{ 
           fontSize: { lg: '44px', xs: '30px' },
           color: '#fff',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.3)'
+          textShadow: '0 0 15px rgba(255, 38, 37, 0.4)',
+          fontFamily: 'Josefin Sans'
         }} 
         mb="49px" 
         textAlign="center"
@@ -66,25 +68,27 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
         <TextField
           height="76px"
           sx={{ 
-            /* Dark Glassmorphism Input */
             input: { 
               fontWeight: '700', 
               border: 'none', 
               borderRadius: '4px',
-              color: '#fff' 
+              color: '#fff',
+              fontFamily: 'Josefin Sans'
             }, 
             width: { lg: '1170px', xs: '350px' }, 
-            backgroundColor: 'rgba(255, 255, 255, 0.1)', 
+            backgroundColor: 'rgba(255, 255, 255, 0.05)', 
             borderRadius: '40px',
+            backdropFilter: 'blur(10px)',
             '& .MuiOutlinedInput-root': {
-              '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.2)' },
-              '&:hover fieldset': { borderColor: '#00D2FF' }, // Blue Glow on Hover
-              '&.Mui-focused fieldset': { borderColor: '#FF2625' }, // Red Glow on Focus
+              borderRadius: '40px',
+              '& fieldset': { borderColor: 'rgba(255, 255, 255, 0.1)' },
+              '&:hover fieldset': { borderColor: '#00D2FF' }, 
+              '&.Mui-focused fieldset': { borderColor: '#FF2625' }, 
             }
           }}
           value={search}
           onChange={(e) => setSearch(e.target.value.toLowerCase())}
-          placeholder="Search Exercises"
+          placeholder="Search Exercises (e.g. Lats, Cable, Chest)"
           type="text"
         />
         <Button 
@@ -92,14 +96,14 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
           sx={{ 
             bgcolor: '#FF2625', 
             color: '#fff', 
-            textTransform: 'none', 
+            textTransform: 'uppercase', 
             width: { lg: '173px', xs: '80px' }, 
             height: '56px', 
             position: 'absolute', 
             right: '0px', 
+            borderRadius: '0 40px 40px 0', // Clips perfectly to the rounded text field
             fontSize: { lg: '20px', xs: '14px' },
-            /* Neon Red Button Glow */
-            boxShadow: '0 0 15px #FF2625',
+            boxShadow: '0 0 15px rgba(255, 38, 37, 0.5)',
             '&:hover': {
                 bgcolor: '#ff4d4d',
                 boxShadow: '0 0 25px #FF2625'
