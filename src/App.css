@@ -1,14 +1,7 @@
-/* ========================================
-   CYBERPUNK FITNESS APP - COMPLETE STYLESHEET
-   Organized: Variables | Reset | Base | Components | Utilities | Responsive
-   Features: Glassmorphism, Neon Effects, Material-UI Overrides
-   Target: React Exercise App (Search, Cards, Details)
-======================================= */
-
-/* --- 1. CSS CUSTOM PROPERTIES (VARIABLES) --- */
+/* --- 1. CSS VARIABLES --- */
 :root {
-  --neon-red: #FF2625;
-  --neon-blue: #00D2FF;
+  --neon-red: #ff2625;
+  --neon-blue: #00d2ff;
   --bg-black: #080808;
   --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -25,52 +18,56 @@
 body {
   font-family: 'Josefin Sans', sans-serif;
   background-color: var(--bg-black) !important;
-  color: #FFFFFF;
+  color: #ffffff;
   overflow-x: hidden;
   position: relative;
 }
 
-/* Cyber-Gradient Scrollbar */
-::-webkit-scrollbar { 
-  width: 6px; 
+/* Cyber‑gradient scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
 }
-::-webkit-scrollbar-track { 
-  background: #000; 
+
+::-webkit-scrollbar-track {
+  background: #000;
 }
+
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(to bottom, var(--neon-red), var(--neon-blue));
   border-radius: 10px;
 }
 
 /* Root Container Fixes */
-#root, .App {
+#root,
+.App {
   overflow-x: hidden;
-  overflow-y: visible !important;
+  overflow-y: visible;
 }
 
 /* --- 3. TYPOGRAPHY & ANIMATIONS --- */
 @keyframes neonPulse {
-  from { 
-    text-shadow: 0 0 5px var(--neon-red); 
-    box-shadow: 0 4px 10px -2px rgba(255, 38, 37, 0.3); 
+  from {
+    text-shadow: 0 0 5px var(--neon-red);
+    box-shadow: 0 4px 10px -2px rgba(255, 38, 37, 0.3);
   }
-  to { 
-    text-shadow: 0 0 15px var(--neon-red); 
-    box-shadow: 0 4px 20px 0px rgba(255, 38, 37, 0.7); 
+  to {
+    text-shadow: 0 0 15px var(--neon-red);
+    box-shadow: 0 4px 20px 0px rgba(255, 38, 37, 0.7);
   }
 }
 
+/* Text‑shine gradient */
 .detail-name-text {
   background: linear-gradient(to right, #fff, rgba(255, 255, 255, 0.6));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+  text-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* --- 4. NAVIGATION --- */
 .navbar-links-container {
   display: flex !important;
-  gap: 50px !important; 
+  gap: 50px !important;
   align-items: center !important;
 }
 
@@ -89,43 +86,68 @@ body {
 }
 
 /* Active Underline Pulse */
-a[style*="borderBottom"] { 
-  animation: neonPulse 2s infinite alternate; 
+a.active-link {
+  border-bottom: 1px solid var(--neon-red);
+  animation: neonPulse 2s infinite alternate;
 }
 
 /* --- 5. SEARCH & HERO SECTION --- */
-.SearchExercises-container, #search-section {
+#search-section {
   margin-top: 150px !important;
   position: relative;
   z-index: 20;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
+/* --- 6. HERO BANNER IMAGE --- */
+/* This takes the image out of the document flow */
 .hero-banner-img {
   position: absolute;
   right: 40px;
-  top: -240px; 
-  width: 650px; 
-  height: auto;
-  z-index: 10;
-  object-fit: contain;
-  filter: drop-shadow(0 0 40px rgba(255, 38, 37, 0.3));
+  top: 0px;
+  width: 700px;
+  height: 900px;
+  margin-top: -330px;
+  z-index: -1; /* Pushes image behind text and buttons */
 }
 
-.MuiTextField-root {
-  transition: all 0.3s var(--smooth-curve);
+/* Fix for Tablet/Small Screens */
+@media screen and (max-width: 1200px) {
+  .hero-banner-img {
+    width: 450px;
+    height: auto;
+    margin-top: -100px;
+    right: 0px;
+    opacity: 0.4; /* Fades image so text remains readable */
+  }
 }
 
+/* Hide on Mobile so Search Bar is accessible */
+@media screen and (max-width: 700px) {
+  .hero-banner-img {
+    display: none;
+  }
+}
+/* Keep search bar group centered on wide screens */
+#search-section > .MuiBox-root {
+  margin: 0 auto;
+}
+
+/* Placeholder visibility inside MUI TextField */
 .MuiInputBase-input::placeholder {
-  color: rgba(255, 255, 255, 0.4) !important;
-  opacity: 1;
-  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5) !important;
+  opacity: 1 !important;
 }
 
+/* Shine effect on Search Button */
 .search-btn {
-  border: 1px solid rgba(255, 38, 37, 0.2) !important;
-  transition: all 0.4s var(--smooth-curve) !important;
-  overflow: hidden;
   position: relative;
+  transition: all 0.4s var(--smooth-curve);
+  overflow: hidden;
+  z-index: 10;
 }
 
 .search-btn::before {
@@ -135,33 +157,29 @@ a[style*="borderBottom"] {
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.2),
-    transparent
-  );
-  transition: 0.5s;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transition: 0.6s var(--smooth-curve);
+  pointer-events: none;
 }
 
 .search-btn:hover::before {
   left: 100%;
 }
 
-.search-btn:hover, .explore-btn:hover {
-  letter-spacing: 1.5px;
-  background-color: #ff4d4d !important;
-  box-shadow: 0 0 30px var(--neon-red), 0 0 10px rgba(255, 255, 255, 0.2) !important;
-  transform: scale(1.05);
+.search-btn:hover {
+  transform: scale(1.02);
+  letter-spacing: 1px;
 }
 
+/* Horizontal scroll menu background */
 .react-horizontal-scrolling-menu--wrapper {
   margin-top: 20px;
   padding: 40px 0 !important;
   background: transparent !important;
+  width: 100%;
 }
 
-/* --- 6. EXERCISE CARDS & GRIDS --- */
+/* --- 7. EXERCISE CARDS & GRIDS --- */
 #exercises .MuiStack-root {
   gap: 40px !important;
   justify-content: center !important;
@@ -170,7 +188,7 @@ a[style*="borderBottom"] {
 }
 
 .exercise-card {
-  width: 380px !important; 
+  width: 380px !important;
   height: 420px !important;
   background: var(--glass-bg) !important;
   backdrop-filter: blur(12px);
@@ -180,7 +198,7 @@ a[style*="borderBottom"] {
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s var(--smooth-curve) !important;
+  transition: all 0.4s var(--smooth-curve);
   flex-shrink: 0;
   overflow: hidden;
 }
@@ -191,9 +209,9 @@ a[style*="borderBottom"] {
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 210, 255, 0.2) !important;
 }
 
-/* 2-Card Similar Exercises Row */
+/* 2‑Card Similar Exercises Row */
 .similar-row .react-horizontal-scrolling-menu--item {
-  width: calc(50% - 40px) !important; 
+  width: calc(50% - 40px) !important;
   padding: 0 !important;
   margin: 0 20px !important;
   flex-shrink: 0;
@@ -202,12 +220,13 @@ a[style*="borderBottom"] {
 }
 
 .similar-row .exercise-card {
-  width: 100% !important; 
+  width: 100% !important;
   max-width: 600px;
 }
 
 /* Arrows */
-.left-arrow, .right-arrow {
+.left-arrow,
+.right-arrow {
   cursor: pointer !important;
   user-select: none;
   z-index: 100;
@@ -218,12 +237,13 @@ a[style*="borderBottom"] {
   transition: 0.3s var(--smooth-curve);
 }
 
-.left-arrow:hover, .right-arrow:hover {
+.left-arrow:hover,
+.right-arrow:hover {
   transform: scale(1.3);
   filter: drop-shadow(0 0 15px var(--neon-blue));
 }
 
-/* --- 7. CATEGORY & BODY PART CARDS --- */
+/* --- 8. CATEGORY & BODY PART CARDS --- */
 .bodyPart-card {
   width: 270px;
   height: 280px;
@@ -231,7 +251,7 @@ a[style*="borderBottom"] {
   backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border) !important;
   border-radius: 0 0 20px 20px;
-  transition: all 0.4s var(--smooth-curve) !important;
+  transition: all 0.4s var(--smooth-curve);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -244,7 +264,7 @@ a[style*="borderBottom"] {
   transform: translateY(-10px);
 }
 
-/* --- 8. DETAIL PAGE --- */
+/* --- 9. DETAIL PAGE --- */
 .detail-container {
   min-height: 100vh;
   background-color: var(--bg-black);
@@ -254,13 +274,13 @@ a[style*="borderBottom"] {
 }
 
 .detail-image-wrapper {
-  background: #FFFFFF;
+  background: #ffffff;
   border-radius: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  box-shadow: 0 0 50px rgba(255, 38, 37, 0.15), 
+  box-shadow: 0 0 50px rgba(255, 38, 37, 0.15),
               inset 0 0 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.4s var(--smooth-curve);
 }
@@ -280,7 +300,7 @@ a[style*="borderBottom"] {
   background: rgba(255, 255, 255, 0.05) !important;
   backdrop-filter: blur(10px);
   border-radius: 50% !important;
-  transition: all 0.3s ease !important;
+  transition: all 0.3s ease;
 }
 
 .detail-icon-btn:hover {
@@ -294,17 +314,18 @@ a[style*="borderBottom"] {
   filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
 }
 
-/* --- 9. RESPONSIVE DESIGN --- */
-@media screen and (max-width: 1200px) {
-  .hero-banner-img { 
-    display: none; 
+/* --- 10. RESPONSIVE DESIGN --- */
+
+
+  #search-section {
+    margin-top: 80px !important;
   }
-  .exercise-card { 
-    width: 320px; 
-    height: 440px; 
+  .exercise-card {
+    width: 320px;
+    height: 440px;
   }
-  .navbar-links-container { 
-    gap: 20px !important; 
+  .navbar-links-container {
+    gap: 20px !important;
   }
   .detail-image-wrapper {
     width: 100% !important;
@@ -314,18 +335,24 @@ a[style*="borderBottom"] {
   .MuiTextField-root {
     width: 350px !important;
   }
-}
 
+
+/* 900px and below */
 @media screen and (max-width: 900px) {
   .similar-row .react-horizontal-scrolling-menu--item {
     width: calc(85% - 20px) !important;
   }
 }
 
+/* 600px and below (mobile) */
 @media screen and (max-width: 600px) {
-  .exercise-card { 
-    width: 100% !important; 
-    height: auto !important; 
+  .hero-banner-img {
+    width: 500px;
+    right: 10px;
+  }
+  .exercise-card {
+    width: 100% !important;
+    height: auto !important;
     margin-bottom: 20px;
   }
   .similar-row .react-horizontal-scrolling-menu--item {
@@ -349,5 +376,6 @@ a[style*="borderBottom"] {
   .search-btn {
     width: 80px !important;
     font-size: 12px !important;
+    height: 48px !important;
   }
 }
