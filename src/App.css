@@ -1,38 +1,163 @@
-.App {
-  text-align: center;
+/* --- 1. THEME VARIABLES --- */
+:root {
+  --neon-red: #FF2625;
+  --neon-blue: #00D2FF;
+  --bg-black: #080808;
+  --glass-bg: rgba(255, 255, 255, 0.04);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --smooth-curve: cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* --- 2. GLOBAL RESET & BASE --- */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  background-color: var(--bg-black) !important;
+  color: #FFFFFF;
+  overflow-x: hidden;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Custom Professional Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #000;
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, var(--neon-red), var(--neon-blue));
+  border-radius: 10px;
+}
+
+/* --- 3. HERO BANNER --- */
+.hero-banner-img {
+  position: absolute;
+  right: 50px;
+  top: 80px; 
+  width: 580px; 
+  height: auto;
+  z-index: -1;
+  object-fit: contain;
+  filter: drop-shadow(0 0 30px rgba(255, 38, 37, 0.15));
+}
+
+/* --- 4. NAVIGATION & INTERACTIVE NEON --- */
+.nav-link-exercises {
+  position: relative;
+  transition: all 0.3s var(--smooth-curve);
+  opacity: 0.8;
+}
+
+.nav-link-exercises:hover {
+  opacity: 1;
+  color: var(--neon-blue) !important;
+  text-shadow: 0 0 15px var(--neon-blue), 0 0 30px rgba(0, 210, 255, 0.4);
+  transform: translateY(-2px);
+}
+
+/* Home Link Underline Pulse */
+a[style*="borderBottom"] {
+  animation: neonPulse 2s infinite alternate;
+}
+
+@keyframes neonPulse {
+  from { text-shadow: 0 0 5px var(--neon-red); box-shadow: 0 4px 10px -2px rgba(255, 38, 37, 0.3); }
+  to { text-shadow: 0 0 15px var(--neon-red); box-shadow: 0 4px 20px 0px rgba(255, 38, 37, 0.7); }
+}
+
+/* --- 5. SEARCH SECTION --- */
+.MuiInputBase-input::placeholder {
+  color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.search-btn {
+  transition: all 0.4s var(--smooth-curve) !important;
+  box-shadow: 0 4px 15px rgba(255, 38, 37, 0.2) !important;
+}
+
+.search-btn:hover {
+  background-color: #ff4d4d !important;
+  box-shadow: 0 0 25px var(--neon-red) !important;
+  letter-spacing: 1px;
+}
+
+/* --- 6. CATEGORY & EXERCISE CARDS --- */
+.react-horizontal-scrolling-menu--wrapper {
+  padding: 60px 0 !important;
+  background-color: transparent !important;
+}
+
+/* CRITICAL FIX: This separates the cards to stop the "Wall" look */
+.react-horizontal-scrolling-menu--item {
+  padding: 0 25px !important; 
+}
+
+.react-horizontal-scrolling-menu--inner-wrapper::-webkit-scrollbar {
+  display: none;
+}
+
+.bodyPart-card, .exercise-card {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border) !important;
+  transition: all 0.4s var(--smooth-curve) !important;
+}
+
+.bodyPart-card:hover, .exercise-card:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+  border-top: 4px solid var(--neon-blue) !important;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 210, 255, 0.2) !important;
+  transform: translateY(-12px);
+}
+
+.exercise-card {
+  width: 360px; /* Essential for a professional balanced look */
+  background: rgba(255, 255, 255, 0.05) !important;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-top: 4px solid #FF2625 !important;
+  border-radius: 20px !important;
+  text-decoration: none;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1) !important;
 }
 
-.App-link {
-  color: #61dafb;
+.exercise-card:hover {
+  transform: translateY(-10px);
+  border-color: #00D2FF !important;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6) !important;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+/* --- 7. ARROWS --- */
+.right-arrow, .left-arrow {
+  cursor: pointer;
+  color: var(--neon-red);
+  filter: drop-shadow(0 0 8px var(--neon-red));
+  transition: 0.3s var(--smooth-curve);
+  margin: 0 20px;
+}
+
+.right-arrow:hover, .left-arrow:hover {
+  color: var(--neon-blue);
+  filter: drop-shadow(0 0 12px var(--neon-blue));
+  transform: scale(1.2);
+}
+
+/* --- 8. RESPONSIVE --- */
+@media screen and (max-width: 1200px) {
+  .hero-banner-img { display: none; }
+  .detail-image { width: 100%; height: auto; }
+  .exercise-card { width: 300px; }
+  
+  .left-arrow, .right-arrow {
+    position: static !important;
+    display: inline-flex;
+    margin-top: 30px;
   }
 }
