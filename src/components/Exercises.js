@@ -30,8 +30,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   // Pagination Logic
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  const currentExercises = Array.isArray(exercises) 
-    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise) 
+  const currentExercises = Array.isArray(exercises)
+    ? exercises.slice(indexOfFirstExercise, indexOfLastExercise)
     : [];
 
   const paginate = (event, value) => {
@@ -52,7 +52,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <Typography
         variant="h4"
         fontWeight="bold"
-        sx={{ 
+        sx={{
           fontSize: { lg: '44px', xs: '30px' },
           mb: '46px',
           fontFamily: 'Josefin Sans',
@@ -69,8 +69,8 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
 
       <Stack
         direction="row"
-        sx={{ 
-          gap: { lg: '80px', xs: '40px' }, 
+        sx={{
+          gap: { lg: '80px', xs: '40px' },
           justifyContent: 'center'
         }}
         flexWrap="wrap"
@@ -103,7 +103,7 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
                   boxShadow: '0 0 15px #00D2FF'
                 },
                 '&.Mui-selected': {
-                  backgroundColor: '#FF2625 !important', 
+                  backgroundColor: '#FF2625 !important',
                   color: '#fff',
                   fontWeight: 'bold',
                   boxShadow: '0 0 25px rgba(255, 38, 37, 0.6)',

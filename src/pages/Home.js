@@ -10,25 +10,23 @@ const Home = () => {
   const [bodyPart, setBodyPart] = useState('all');
 
   return (
-    /* THE FIX: Added overflowY: 'visible' to allow the absolute 
-       positioned banner to "stick out" of the top correctly */
     <Box sx={{ overflowY: 'visible', position: 'relative' }}>
       <HeroBanner />
-      
+
       {/* Search Section */}
       <Box sx={{ mt: { lg: '100px', xs: '50px' } }}>
-        <SearchExercises 
-          setExercises={setExercises} 
-          bodyPart={bodyPart} 
-          setBodyPart={setBodyPart} 
+        <SearchExercises
+          setExercises={setExercises}
+          bodyPart={bodyPart}
+          setBodyPart={setBodyPart}
         />
       </Box>
 
       {/* Results Grid */}
-      <Exercises 
-        setExercises={setExercises} 
-        exercises={exercises} 
-        bodyPart={bodyPart} 
+      <Exercises
+        setExercises={setExercises}
+        exercises={exercises}
+        bodyPart={bodyPart}
       />
     </Box>
   );

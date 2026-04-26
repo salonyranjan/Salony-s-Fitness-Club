@@ -14,13 +14,13 @@ const LeftArrow = () => {
   const { scrollPrev } = useContext(VisibilityContext);
 
   return (
-    <Typography 
-      onClick={() => scrollPrev()} 
+    <Typography
+      onClick={() => scrollPrev()}
       className="left-arrow"
-      sx={{ 
-        cursor: 'pointer', 
-        display: 'flex', 
-        alignItems: 'center', 
+      sx={{
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         zIndex: 10,
         position: 'relative' // Ensures it stays clickable above background layers
@@ -35,13 +35,13 @@ const RightArrow = () => {
   const { scrollNext } = useContext(VisibilityContext);
 
   return (
-    <Typography 
-      onClick={() => scrollNext()} 
+    <Typography
+      onClick={() => scrollNext()}
       className="right-arrow"
-      sx={{ 
-        cursor: 'pointer', 
-        display: 'flex', 
-        alignItems: 'center', 
+      sx={{
+        cursor: 'pointer',
+        display: 'flex',
+        alignItems: 'center',
         justifyContent: 'center',
         zIndex: 10,
         position: 'relative'
@@ -54,10 +54,10 @@ const RightArrow = () => {
 
 const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
   <Box sx={{ position: 'relative', width: '100%', p: '20px 0' }}>
-    <ScrollMenu 
-      LeftArrow={LeftArrow} 
+    <ScrollMenu
+      LeftArrow={LeftArrow}
       RightArrow={RightArrow}
-      wrapperClassName="scroll-menu-wrapper" // Helpful for CSS targeting
+      wrapperClassName="scroll-menu-wrapper"
     >
       {data.map((item) => (
         <Box
@@ -65,7 +65,6 @@ const HorizontalScrollbar = ({ data, bodyParts, setBodyPart, bodyPart }) => (
           itemId={item.id || item}
           title={item.id || item}
           sx={{
-            /* Fixed Spacing: Ensures wide cards don't touch */
             mx: { lg: '30px', xs: '15px' },
             display: 'inline-block'
           }}

@@ -23,7 +23,6 @@ export const youtubeOptions = {
 export const fetchData = async (url, options) => {
   // Guard clause to prevent unnecessary network calls
   if (!url || url.includes('undefined') || url.includes('null')) {
-    console.warn('fetchData: Invalid URL provided');
     return [];
   }
 
@@ -33,12 +32,9 @@ export const fetchData = async (url, options) => {
     if (!response.ok) {
       // Specifically catch rate limit errors common in RapidAPI free tiers
       if (response.status === 429) {
-        console.error('API Error: Rate limit exceeded (429). Please check your RapidAPI plan.');
         return [];
       }
-      
-      const errorData = await response.json();
-      console.error(`API Error (${response.status}):`, errorData.message || 'Failed to fetch');
+
       return [];
     }
 
@@ -48,12 +44,11 @@ export const fetchData = async (url, options) => {
     // ExerciseDB usually returns a direct Array.
     // YouTube Search returns an object with a 'contents' key.
     if (Array.isArray(data)) return data;
-    if (data.contents) return data.contents; 
+    if (data.contents) return data.contents;
     if (data.results) return data.results;
 
     return data;
   } catch (error) {
-    console.error('Network error occurred while fetching data:', error);
     return [];
   }
 };

@@ -10,14 +10,14 @@ import Footer from './components/Footer';
 
 const App = () => (
   /* THE FIX: Removed width="400px" and added overflow control */
-  <Box 
-    sx={{ 
+  <Box
+    sx={{
       width: { xl: '1488px' },
       margin: 'auto',
       position: 'relative',
       /* Allows your absolute-positioned banner image to show up */
-      overflow: 'visible' 
-    }} 
+      overflow: 'visible'
+    }}
     width="100%"
   >
     <Navbar />

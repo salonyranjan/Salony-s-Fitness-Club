@@ -18,56 +18,62 @@ const Detail = ({ exerciseDetail }) => {
   ];
 
   return (
-    <Stack 
-      direction={{ lg: 'row', xs: 'column' }} 
-      sx={{ 
-        p: { lg: '80px', xs: '20px' }, 
-        alignItems: 'center', 
-        justifyContent: 'center', 
+    <Stack
+      direction={{ lg: 'row', xs: 'column' }}
+      sx={{
+        p: { lg: '80px', xs: '20px' },
+        alignItems: 'center',
+        justifyContent: 'center',
         gap: { lg: '100px', xs: '40px' },
-        background: '#080808' 
+        background: '#080808'
       }}
     >
       {/* 1. IMAGE CONTAINER - THE FIX: Fixed Height & Containment */}
-      <Box sx={{ 
-        background: '#fff', // White background makes the transparent GIFs look cleaner
-        borderRadius: '40px', 
-        p: '20px', 
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 38, 37, 0.1)',
-        width: { lg: '550px', xs: '100%' }, 
-        height: { lg: '550px', xs: '350px' }, // LOCKS THE HEIGHT to prevent zooming
-        flexShrink: 0,
-        overflow: 'hidden'
-      }}>
+      <Box
+        sx={{
+          background: '#fff',
+          borderRadius: '40px',
+          p: '20px',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          boxShadow: '0 20px 60px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 38, 37, 0.1)',
+          width: { lg: '550px', xs: '100%' },
+          height: { lg: '550px', xs: '350px' },
+          flexShrink: 0,
+          overflow: 'hidden'
+        }}
+      >
         <img
           src={secureGifUrl}
           alt={name}
           loading="lazy"
-          style={{ 
-            borderRadius: '25px', 
-            maxWidth: '100%', 
-            maxHeight: '100%', 
-            objectFit: 'contain' // Forces the image to fit inside the box
+          style={{
+            borderRadius: '25px',
+            maxWidth: '100%',
+            maxHeight: '100%',
+            objectFit: 'contain'
           }}
-          onError={(e) => { if (e.target.src !== gifUrl) e.target.src = gifUrl; }}
+          onError={(e) => {
+            if (e.target.src !== gifUrl) e.target.src = gifUrl;
+          }}
         />
       </Box>
 
       {/* 2. TEXT CONTENT */}
-      <Stack sx={{ 
-        alignItems: 'flex-start', 
-        maxWidth: '600px', 
-        textAlign: 'left' 
-      }}>
-        <Typography 
-          variant="h2" 
-          sx={{ 
-            fontSize: { lg: '64px', xs: '32px' }, 
-            color: '#fff', 
-            fontWeight: 800, 
+      <Stack
+        sx={{
+          alignItems: 'flex-start',
+          maxWidth: '600px',
+          textAlign: 'left'
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: { lg: '64px', xs: '32px' },
+            color: '#fff',
+            fontWeight: 800,
             textTransform: 'capitalize',
             mb: '25px',
             lineHeight: 1.1,
@@ -77,42 +83,49 @@ const Detail = ({ exerciseDetail }) => {
         >
           {name}
         </Typography>
-        
-        <Typography sx={{ fontSize: { lg: '22px', xs: '18px' }, color: 'rgba(255, 255, 255, 0.6)', mb: '40px', fontFamily: 'Josefin Sans' }}>
-          Workouts fuel the soul. <span style={{ color: '#FF2625', fontWeight: 'bold', textTransform: 'capitalize' }}>{name}</span> is 
-          arguably one of the best movements to isolate your <span style={{ color: '#00D2FF', fontWeight: 'bold', textTransform: 'capitalize' }}>{target}</span>. 
+
+        <Typography
+          sx={{
+            fontSize: { lg: '22px', xs: '18px' },
+            color: 'rgba(255, 255, 255, 0.6)',
+            mb: '40px',
+            fontFamily: 'Josefin Sans'
+          }}
+        >
+          Workouts fuel the soul. <span style={{ color: '#FF2625', fontWeight: 'bold', textTransform: 'capitalize' }}>{name}</span> is
+          arguably one of the best movements to isolate your <span style={{ color: '#00D2FF', fontWeight: 'bold', textTransform: 'capitalize' }}>{target}</span>.
           Perfecting this form is key to your growth.
         </Typography>
-        
+
         {/* Detail List */}
         <Stack direction="column" gap="30px">
           {extraDetail?.map((item, index) => (
             <Stack key={index} direction="row" gap="25px" alignItems="center">
-              <Button 
-                sx={{ 
-                  background: 'rgba(255, 255, 255, 0.05)', 
+              <Button
+                sx={{
+                  background: 'rgba(255, 255, 255, 0.05)',
                   backdropFilter: 'blur(10px)',
-                  borderRadius: '50%', 
-                  width: '80px', 
+                  borderRadius: '50%',
+                  width: '80px',
                   height: '80px',
-                  border: `1px solid ${item.glow}44`, // Subtle transparent glow border
+                  border: `1px solid ${item.glow}44`,
                   boxShadow: `0 0 15px ${item.glow}22`,
                   cursor: 'default'
                 }}
               >
-                <img 
-                  src={item.icon} 
-                  alt={item.name} 
-                  style={{ width: '40px', height: '40px' }} 
+                <img
+                  src={item.icon}
+                  alt={item.name}
+                  style={{ width: '40px', height: '40px' }}
                 />
               </Button>
-              <Typography 
-                textTransform="capitalize" 
-                sx={{ 
-                    fontSize: { lg: '24px', xs: '20px' }, 
-                    color: '#fff', 
-                    fontWeight: '600',
-                    fontFamily: 'Josefin Sans'
+              <Typography
+                textTransform="capitalize"
+                sx={{
+                  fontSize: { lg: '24px', xs: '20px' },
+                  color: '#fff',
+                  fontWeight: '600',
+                  fontFamily: 'Josefin Sans'
                 }}
               >
                 {item.name}
