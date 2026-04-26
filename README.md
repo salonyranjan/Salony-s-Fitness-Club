@@ -1,11 +1,39 @@
+<p align="center">
+  <a href="https://salony-s-fitness-club.vercel.app" target="_blank" rel="noopener noreferrer">
+    <img src="src/assets/images/banner.png" alt="Salony's Fitness Club Banner" width="100%" style="border-radius: 12px; border: 1px solid #333;">
+  </a>
+</p>
+
+<div align="center">
+  <h1>🚀 Salony's Fitness Club</h1>
+  <p>
+    <b>A Cinematic AI-Driven Fitness Intelligence Terminal</b><br />
+    <i>Discover 1,300+ Exercises with Real-Time YouTube Integration & Performance Analytics</i>
+  </p>
+  
+  <p>
+    <a href="https://salony-s-fitness-club.vercel.app"><b>Live Dashboard</b></a> •
+    <a href="#-features"><b>Core Features</b></a> •
+    <a href="#-tech-stack"><b>Tech Stack</b></a>
+  </p>
+</div>
+
+<hr />
+
 # 🏋️‍♂️ Salony's Fitness Club
 
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)](https://mui.com/)
 [![RapidAPI](https://img.shields.io/badge/RapidAPI-000000?style=for-the-badge&logo=rapidapi&logoColor=white)](https://rapidapi.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
 **Salony's Fitness Club** is a modern fitness application that helps users discover exercises tailored to specific body parts, target muscles, and equipment. Built with **React** and **Material UI 5**, it leverages the **ExerciseDB** and **YouTube Search and Download** APIs via RapidAPI to provide high-quality GIFs, technical details, and instructional videos.
+
+---
+
+## 🌐 Live Dashboard
+🚀 **[View the Live Project Here](https://salony-s-fitness-club.vercel.app/)**
 
 ---
 
