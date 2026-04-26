@@ -39,9 +39,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             item.bodyPart.toLowerCase().includes(search)
         );
 
-        // Moves the view to the results grid
         window.scrollTo({ top: 1800, behavior: 'smooth' });
-        
         setSearch('');
         setExercises(searchedExercises);
       }
@@ -49,14 +47,21 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
   };
 
   return (
-    <Stack alignItems="center" mt="37px" justifyContent="center" p="20px">
+    <Stack 
+      id="exercises" // Anchor for the Hero Button
+      alignItems="center" 
+      mt="37px" 
+      justifyContent="center" 
+      p="20px"
+    >
       <Typography 
         fontWeight={700} 
         sx={{ 
           fontSize: { lg: '44px', xs: '30px' },
           color: '#fff',
           textShadow: '0 0 15px rgba(255, 38, 37, 0.4)',
-          fontFamily: 'Josefin Sans'
+          fontFamily: 'Josefin Sans',
+          lineHeight: '1.5' // Prevents text from being cut off vertically
         }} 
         mb="49px" 
         textAlign="center"
@@ -101,7 +106,7 @@ const SearchExercises = ({ setExercises, bodyPart, setBodyPart }) => {
             height: '56px', 
             position: 'absolute', 
             right: '0px', 
-            borderRadius: '0 40px 40px 0', // Clips perfectly to the rounded text field
+            borderRadius: '0 40px 40px 0', 
             fontSize: { lg: '20px', xs: '14px' },
             boxShadow: '0 0 15px rgba(255, 38, 37, 0.5)',
             '&:hover': {

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Box, Typography, Button } from '@mui/material';
-
 import HeroBannerImage from '../assets/images/banner.png';
 
 const HeroBanner = () => (
@@ -11,65 +10,52 @@ const HeroBanner = () => (
     }} 
     position="relative" 
     p="20px"
+    zIndex={1}
   >
-    {/* 1. Brand Title */}
-    <Typography color="#FF2625" fontWeight="600" fontSize="26px">
-      Fitness Club
+    <Typography color="rgba(255, 255, 255, 0.6)" fontWeight="600" fontSize="26px">
+      Salony's Fitness Club
     </Typography>
 
-    {/* 2. Main Catchphrase */}
     <Typography 
       fontWeight={700} 
-      sx={{ fontSize: { lg: '44px', xs: '40px' } }} 
+      sx={{ 
+        fontSize: { lg: '64px', xs: '40px' },
+        color: '#fff',
+        lineHeight: '1.2'
+      }} 
       mb="23px" 
       mt="30px"
     >
-      Sweat, Smile <br />
-      And Repeat
+      "Code Your Body, <br />
+      Optimize Your Strength !"
     </Typography>
 
-    {/* 3. Description */}
     <Typography 
       fontSize="22px" 
       fontFamily="Alegreya" 
       lineHeight="35px" 
-      mb={4}
+      mb={5}
+      sx={{ color: '#fff', opacity: 0.8 }}
     >
       Check out the most effective exercises personalized to you
     </Typography>
 
-    {/* 4. Action Button */}
     <Button 
       variant="contained" 
-      color="error" 
       href="#exercises"
       sx={{ 
         backgroundColor: '#FF2625', 
-        padding: '14px', 
+        padding: '14px 30px', 
         fontSize: '22px', 
         textTransform: 'none', 
         color: 'white', 
-        borderRadius: '4px' 
+        borderRadius: '4px',
+        mb: '100px' // Added margin bottom to create space for the section below
       }}
     >
       Explore Exercises
     </Button>
 
-    {/* 5. Large Decorative Background Text */}
-    <Typography 
-      fontWeight={600} 
-      color="#FF2625" 
-      sx={{ 
-        opacity: '0.1', 
-        display: { lg: 'block', xs: 'none' }, 
-        fontSize: '200px',
-        userSelect: 'none'
-      }}
-    >
-      Exercise
-    </Typography>
-
-    {/* 6. The Hero Image (Positioned Absolute in CSS) */}
     <img 
       src={HeroBannerImage} 
       alt="hero-banner" 

@@ -103,29 +103,30 @@ a.active-link {
 }
 
 /* --- 6. HERO BANNER IMAGE --- */
-/* This takes the image out of the document flow */
 .hero-banner-img {
   position: absolute;
   right: 40px;
-  top: 0px;
+  top: 0px; 
   width: 700px;
-  height: 900px;
-  margin-top: -330px;
-  z-index: -1; /* Pushes image behind text and buttons */
+  height: auto; 
+  margin-top: -160px; 
+  z-index: -1;
+  pointer-events: none;
 }
 
 /* Fix for Tablet/Small Screens */
 @media screen and (max-width: 1200px) {
   .hero-banner-img {
+    /* Changed 100 to 1 for correct CSS syntax. 
+       Use 0.4 if you want it to be faded on tablets! */
+    opacity: 1; 
     width: 450px;
-    height: auto;
-    margin-top: -100px;
+    margin-top: -70px;
     right: 0px;
-    opacity: 0.4; /* Fades image so text remains readable */
   }
 }
 
-/* Hide on Mobile so Search Bar is accessible */
+/* Hide on Mobile */
 @media screen and (max-width: 700px) {
   .hero-banner-img {
     display: none;
