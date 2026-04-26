@@ -100,7 +100,7 @@ a.active-link {
   display: flex;
   flex-direction: column;
   /* Change to flex-start to align with your left-side Hero text */
-  align-items: flex-start; 
+  align-items: flex-start;
   width: 100%;
 }
 /* --- 6. HERO BANNER IMAGE --- */
@@ -113,12 +113,19 @@ a.active-link {
   margin-top: -160px;
   z-index: -1;
   pointer-events: none;
+  /* THE FIX: Blends the left side and bottom into the background */
+  -webkit-mask-image: linear-gradient(to left, black 75%, transparent 100%), 
+                      linear-gradient(to bottom, black 85%, transparent 100%);
+  mask-image: linear-gradient(to left, black 75%, transparent 100%), 
+              linear-gradient(to bottom, black 85%, transparent 100%);
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 /* Fix for Tablet/Small Screens */
 @media screen and (max-width: 1200px) {
   .hero-banner-img {
-    opacity: 1;
+    opacity: 1; /* Lowering opacity helps text readability on smaller screens */
     width: 450px;
     margin-top: -70px;
     right: 0;
@@ -141,7 +148,7 @@ a.active-link {
   position: relative;
   width: 100%;
   /* This MUST match your TextField width to pin the button correctly */
-  max-width: 1170px; 
+  max-width: 1170px;
 }
 /* Fix for MUI TextField to ensure it matches the reference design */
 .MuiTextField-root {
@@ -182,7 +189,7 @@ a.active-link {
   z-index: 2;
   white-space: nowrap;
   position: absolute; /* Ensures it overlays the TextField */
-  right: 0; 
+  right: 0;
   height: 56px;
   border-radius: 0 40px 40px 0 !important; /* Perfect clip */
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
