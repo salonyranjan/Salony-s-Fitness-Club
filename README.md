@@ -144,34 +144,36 @@ graph TD
     class B hub;
     class C,D,G cloud;
 ```
-
 ---
 
-## 🔄 Data Flow Protocol
+## 🧠 Data Flow Logic
 
-The terminal follows a strictly optimized asynchronous data lifecycle to ensure low-latency performance during the "Neural Search" process:
+The terminal utilizes a **Synchronized Asynchronous Pattern** to ensure that instructional media is perfectly mapped to the biological exercise data.
 
 ```mermaid
 sequenceDiagram
     autonumber
-    participant U as User Interface (React)
-    participant H as Intelligence Hub (Data Fetcher)
-    participant E as ExerciseDB (RapidAPI)
-    participant Y as YouTube API (RapidAPI)
+    participant U as User (UI)
+    participant R as React State (Hooks)
+    participant F as fetchData Utility
+    participant E as ExerciseDB API
+    participant Y as YouTube API
 
-    U->>H: Search Query / Category Selection
-    H->>E: GET request (Exercise Metadata & GIFs)
-    E-->>H: JSON Response (1,300+ Exercise Mapping)
+    U->>R: Selects Body Part / Enters Search
+    R->>F: Request Metadata for "Target"
+    F->>E: GET /exercises/bodyPart/{target}
+    E-->>F: Return JSON (IDs, GIFs, Instructions)
+    F-->>R: Update 'exercises' State
     
-    Note over H,Y: Concurrent Process Initialized
+    Note over R,Y: Initialization of Neural Video Mapping
     
-    H->>Y: GET request (Instructional Media Mapping)
-    Y-->>H: JSON Response (Top Video Tutorials)
+    R->>F: Request Instructional Media for {ExerciseName}
+    F->>Y: GET /search?q={ExerciseName}
+    Y-->>F: Return YouTube Video Metadata
+    F-->>R: Update 'exerciseVideos' State
     
-    H->>U: Final State Update (UI Rendering)
-    Note right of U: Optimized Glassmorphic UI Displayed
+    Note right of R: Virtual DOM Re-renders with Full Intelligence
 ```
-
 ---
 
 ## ⚙️ Operational Workflow
@@ -207,7 +209,7 @@ stateDiagram-v2
 The project follows a modular directory pattern to ensure high maintainability and clear separation of concerns:
 
 ```text
-gymvibe/
+Salony-s-Fitness-Club/
 ├── public/                 # Static assets & manifest files
 │   ├── banner-hero.png     # Primary terminal hero image
 │   ├── favicon.ico
@@ -239,8 +241,8 @@ gymvibe/
 
 1. **Clone the repository:**
  ```bash
- git clone [https://github.com/salonyranjan/GymVibe.git](https://github.com/salonyranjan/GymVibe.git)
- cd GymVibe
+git clone [https://github.com/salonyranjan/Salony-s-Fitness-Club.git](https://github.com/salonyranjan/Salony-s-Fitness-Club.git)
+cd Salony-s-Fitness-Club
  ```
 
 2. **Install dependencies:**
@@ -258,4 +260,30 @@ REACT_APP_RAPID_API_KEY=your_actual_api_key_here
  ```bash
 npm start
  ```
+---
+
+## 🔑 API Configuration Guide
+
+**Salony's Fitness Club** operates as an Intelligence Terminal by synthesizing data from two high-performance external engines via **RapidAPI**. To ensure the terminal functions correctly, follow these configuration steps:
+
+### 📡 Required Endpoints
+
+| System Provider | Role in Terminal | Data Type |
+| :--- | :--- | :--- |
+| **ExerciseDB** | Primary Intelligence | 1,300+ Exercises, Body-part mapping, Motion GIFs |
+| **YouTube Search** | Instructional Media | Real-time video tutorials, Neural metadata mapping |
+
+### 🛠️ Configuration Steps
+
+1. **Acquire Credentials:**
+   Sign up at [RapidAPI.com](https://rapidapi.com) and subscribe to the **ExerciseDB** and **YouTube Search and Download** APIs (both offer comprehensive free tiers).
+
+2. **Terminal Handshake:**
+   In your root directory, ensure your `.env` file contains your unique API key. This key is used for both headers to maintain a clean architecture.
+   ```env
+    REACT_APP_RAPID_API_KEY=your_key_generated_by_rapidapi
+    ```
+3. **Rate Limit Awareness:**
+   The terminal is optimized with asynchronous fetching to minimize API calls. However, be aware of the daily limits on the free tiers to ensure uninterrupted "Neural Search" functionality.
+
 ---
