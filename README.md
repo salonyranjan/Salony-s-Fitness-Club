@@ -1,6 +1,13 @@
+[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
+[![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)](https://mui.com/)
+[![RapidAPI](https://img.shields.io/badge/RapidAPI-000000?style=for-the-badge&logo=rapidapi&logoColor=white)](https://rapidapi.com/)
+[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Live Site](https://img.shields.io/badge/Live_Demo-🚀-FF2625?style=for-the-badge&logo=vercel&logoColor=white)](https://salony-s-fitness-club.vercel.app/)
+
 <p align="center">
   <a href="https://salony-s-fitness-club.vercel.app" target="_blank" rel="noopener noreferrer">
-    <img src="src/assets/images/banner.png" alt="Salony's Fitness Club Banner" width="100%" style="border-radius: 12px; border: 1px solid #333;" />
+    <img src="src/assets/images/banner-hero.png" alt="Salony's Fitness Club Banner" width="100%" style="border-radius: 12px; border: 1px solid #333;" />
   </a>
 </p>
 
@@ -12,6 +19,10 @@
   </p>
 
   <p>
+    <b>Salony's Fitness Club</b> is a modern fitness application that helps users discover exercises tailored to specific body parts, target muscles, and equipment. Built with <b>React</b> and <b>Material UI 5</b>, it leverages the <b>ExerciseDB</b> and <b>YouTube Search and Download</b> APIs via RapidAPI to provide high-quality GIFs, technical details, and instructional videos.
+  </p>
+
+  <p>
     <a href="https://salony-s-fitness-club.vercel.app"><b>Live Dashboard</b></a> •
     <a href="#features"><b>Core Features</b></a> •
     <a href="#tech-stack"><b>Tech Stack</b></a>
@@ -20,19 +31,7 @@
 
 <hr />
 
-[![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
-[![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)](https://mui.com/)
-[![RapidAPI](https://img.shields.io/badge/RapidAPI-000000?style=for-the-badge&logo=rapidapi&logoColor=white)](https://rapidapi.com/)
-[![Vercel](https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://vercel.com/)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
-
-**Salony's Fitness Club** is a modern fitness application that helps users discover exercises tailored to specific body parts, target muscles, and equipment. Built with **React** and **Material UI 5**, it leverages the **ExerciseDB** and **YouTube Search and Download** APIs via RapidAPI to provide high-quality GIFs, technical details, and instructional videos.
-
----
-
 ## 🌐 Live Dashboard
-
-[![Live Site](https://img.shields.io/badge/Live_Demo-🚀-FF2625?style=for-the-badge&logo=vercel&logoColor=white)](https://salony-s-fitness-club.vercel.app/)
 
 > **Status:** Operational 🟢  
 > **Host:** Vercel Edge Network  
@@ -104,6 +103,138 @@ A fully responsive terminal experience built with **Material UI 5**. Whether on 
 
 ---
 
+## 🏗️ Project Architecture
+
+The following diagram illustrates the **Uni-Directional Data Flow** and the **External Intelligence Integration** within the terminal:
+
+```mermaid
+graph TD
+    %% Node Definitions
+    A[User Interface - React.js]
+    B{Intelligence Hub}
+    C[ExerciseDB API]
+    D[YouTube Search API]
+    E[MUI 5 Terminal Display]
+    F[GitHub Repository]
+    G[Vercel Edge Network]
+
+    %% Data Flow
+    A -->|Search/Filter Query| B
+    
+    subgraph RapidAPI Systems
+    B -->|GET Request| C
+    B -->|GET Request| D
+    C -->|GIFs & Metadata| B
+    D -->|Instructional Media| B
+    end
+    
+    B -->|State Update| E
+    E -->|Interactive Cards| A
+    
+    subgraph Deployment
+    F -->|CI/CD Pipeline| G
+    G -->|Production Build| E
+    end
+
+    %% High-Contrast Styling for Visibility
+    classDef default fill:#1a1a1a,stroke:#FF2625,stroke-width:2px,color:#ffffff,font-weight:bold;
+    classDef hub fill:#FF2625,stroke:#fff,stroke-width:4px,color:#ffffff,font-weight:bold;
+    classDef cloud fill:#2d2d2d,stroke:#0081CB,stroke-width:2px,color:#ffffff,font-weight:bold;
+
+    class B hub;
+    class C,D,G cloud;
+```
+
+---
+
+## 🔄 Data Flow Protocol
+
+The terminal follows a strictly optimized asynchronous data lifecycle to ensure low-latency performance during the "Neural Search" process:
+
+```mermaid
+sequenceDiagram
+    autonumber
+    participant U as User Interface (React)
+    participant H as Intelligence Hub (Data Fetcher)
+    participant E as ExerciseDB (RapidAPI)
+    participant Y as YouTube API (RapidAPI)
+
+    U->>H: Search Query / Category Selection
+    H->>E: GET request (Exercise Metadata & GIFs)
+    E-->>H: JSON Response (1,300+ Exercise Mapping)
+    
+    Note over H,Y: Concurrent Process Initialized
+    
+    H->>Y: GET request (Instructional Media Mapping)
+    Y-->>H: JSON Response (Top Video Tutorials)
+    
+    H->>U: Final State Update (UI Rendering)
+    Note right of U: Optimized Glassmorphic UI Displayed
+```
+
+---
+
+## ⚙️ Operational Workflow
+
+This state-machine diagram visualizes the internal logic of the terminal from the initial boot sequence to user-driven exploration:
+
+```mermaid
+stateDiagram-v2
+    [*] --> Initialize: Terminal Boot (Vercel)
+    Initialize --> Idle: Load Body Part Categories
+    
+    state "Search Processing" as SP {
+        Idle --> Fetching: User Input / Category Click
+        Fetching --> NeuralMapping: Resolve ExerciseDB Metadata
+        NeuralMapping --> MediaSync: Query YouTube Instructional Data
+    }
+
+    MediaSync --> Render: Update React State
+    Render --> Display: Optimized UI Interaction
+    Display --> Idle: Clear Query / Reset Terminal
+    
+    %% Fixed High-Contrast Styling
+    classDef mainState fill:#1a1a1a,stroke:#333,stroke-width:1px,color:#fff,font-weight:bold
+    classDef processing fill:#2d2d2d,stroke:#FF2625,stroke-width:2px,color:#fff
+
+    class Initialize,Idle,Render,Display mainState
+    class SP processing
+```
+---
+
+## 🏗️ Terminal Folder Structure
+
+The project follows a modular directory pattern to ensure high maintainability and clear separation of concerns:
+
+```text
+gymvibe/
+├── public/                 # Static assets & manifest files
+│   ├── banner-hero.png     # Primary terminal hero image
+│   ├── favicon.ico
+│   └── index.html          # Entry point template
+├── src/
+│   ├── assets/             # Global media & design assets
+│   │   ├── icons/          # Exercise & body-part icons
+│   │   └── images/         # High-fidelity banners & logos
+│   ├── components/         # Reusable UI Intelligence components
+│   │   ├── ExerciseCard.js # Dynamic result cards
+│   │   ├── Navbar.js       # Navigation terminal
+│   │   ├── SearchExercises.js # Intelligence search bar
+│   │   └── ...             # (Detail, Footer, Loader, etc.)
+│   ├── pages/              # Primary route views
+│   │   ├── Home.js         # Main dashboard
+│   │   └── ExerciseDetail.js # Deep-dive analytics page
+│   ├── utils/              # Data processing & API services
+│   │   └── fetchData.js    # RapidAPI neural mapping utility
+│   ├── App.js              # Root component & route manager
+│   ├── App.css             # Glassmorphic terminal styling
+│   └── index.js            # React DOM initialization
+├── .env                    # Secure credential storage
+├── .eslintrc.js            # Airbnb code quality configuration
+├── vercel.json             # Deployment optimization settings
+└── package.json            # Dependency & script manifest
+```
+---
 ## 📦 Installation & Setup
 
 1. **Clone the repository:**
@@ -128,12 +259,3 @@ REACT_APP_RAPID_API_KEY=your_actual_api_key_here
 npm start
  ```
 ---
-## 🏗️ Folder Structure
- ```Plaintext
-src/
- ┣ assets/            # Icons and Images
- ┣ components/        # Reusable UI components (Navbar, Footer, Search, etc.)
- ┣ pages/             # Main views (Home, ExerciseDetail)
- ┣ utils/             # API fetching logic (fetchData.js)
- ┗ App.js             # Routing and layout
-```
