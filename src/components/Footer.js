@@ -27,7 +27,7 @@ const Footer = () => (
           style={{ 
             width: '40px', 
             height: '40px', 
-            filter: 'drop-shadow(0 0 5px #FF2625)' 
+            filter: 'drop-shadow(0 0 5px #71c9e3ff)' 
           }} 
         />
         <Typography 

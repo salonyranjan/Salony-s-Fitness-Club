@@ -6,28 +6,28 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
   if (!exerciseVideos?.length) return <Loader />;
 
   return (
-    <Box sx={{ marginTop: { lg: '203px', xs: '20px' } }} p="20px">
-      {/* Title with Neon Glow */}
+    <Box sx={{ marginTop: { lg: '100px', xs: '20px' } }} p="20px">
       <Typography 
         sx={{ 
           fontSize: { lg: '44px', xs: '25px' },
           color: '#fff',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.2)'
+          textShadow: '0 0 10px rgba(255, 255, 255, 0.1)'
         }} 
         fontWeight={700} 
-        mb="33px"
+        mb="40px"
       >
-        Watch <span style={{ color: '#FF2625', textTransform: 'capitalize', textShadow: '0 0 10px #FF2625' }}>{name}</span> exercise videos
+        Watch <span style={{ color: '#FF2625', textTransform: 'capitalize', textShadow: '0 0 15px rgba(255, 38, 37, 0.4)' }}>{name}</span> exercise videos
       </Typography>
 
       <Stack 
+        direction="row" // Forces row direction
         sx={{ 
-          flexDirection: { lg: 'row' }, 
-          gap: { lg: '110px', xs: '30px' } 
+          gap: { lg: '30px', xs: '20px' },
+          overflowX: { xs: 'auto', lg: 'visible' }, // Allows horizontal scrolling on small screens
+          pb: '10px'
         }} 
-        justifyContent="flex-start" 
-        flexWrap="wrap" 
-        alignItems="center"
+        justifyContent="space-between" 
+        alignItems="flex-start"
       >
         {exerciseVideos?.slice(0, 3)?.map((item, index) => (
           <a
@@ -40,39 +40,46 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
               textDecoration: 'none',
               background: 'rgba(255, 255, 255, 0.03)',
               borderRadius: '20px',
-              padding: '10px',
+              padding: '12px',
               border: '1px solid rgba(255, 255, 255, 0.1)',
-              transition: '0.3s all ease-in-out',
-              maxWidth: '387px'
+              transition: '0.4s all ease-in-out',
+              flex: 1, // Ensures all three boxes take equal space in the row
+              minWidth: { xs: '280px', lg: '0' }, // Prevents cards from getting too squashed on mobile
+              display: 'block'
             }}
           >
             <img 
               style={{ 
-                borderRadius: '15px', 
+                borderRadius: '12px', 
                 width: '100%', 
+                height: 'auto', 
+                aspectRatio: '16/9', // Maintains video thumbnail ratio
                 objectFit: 'cover',
-                boxShadow: '0 4px 15px rgba(0,0,0,0.5)'
               }} 
               src={item.video.thumbnails[0].url} 
               alt={item.video.title} 
             />
-            <Box mt="15px" ml="5px">
+            <Box mt="15px">
               <Typography 
-                sx={{ fontSize: { lg: '22px', xs: '18px' } }} 
+                sx={{ 
+                  fontSize: { lg: '18px', xs: '16px' },
+                  display: '-webkit-box',
+                  overflow: 'hidden',
+                  WebkitBoxOrient: 'vertical',
+                  WebkitLineClamp: 2, 
+                  color: '#fff' // Explicitly set white to override link default
+                }} 
                 fontWeight={600} 
-                color="#fff" // Clean white for titles
-                lineHeight="1.2"
+                lineHeight="1.4"
               >
-                {item.video.title.length > 50 
-                  ? `${item.video.title.substring(0, 50)}...` 
-                  : item.video.title}
+                {item.video.title}
               </Typography>
               <Typography 
-                fontSize="14px" 
-                color="#00D2FF" // Neon Blue for channel name
-                mt="8px"
+                fontSize="13px" 
+                color="#00D2FF" 
+                mt="10px"
                 fontWeight="500"
-                sx={{ opacity: 0.8 }}
+                sx={{ opacity: 0.7, textTransform: 'uppercase', letterSpacing: '1px' }}
               >
                 {item.video.channelName}
               </Typography>
