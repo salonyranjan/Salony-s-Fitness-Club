@@ -37,7 +37,7 @@ const Navbar = () => (
       <Typography
         fontWeight="bold"
         sx={{
-          fontSize: { lg: '28px', xs: '16px' },
+          fontSize: { lg: '28px', xs: '18px' },
           color: '#fff',
           textShadow: '0 0 10px #00D2FF, 0 0 20px #00D2FF',
           fontFamily: 'Josefin Sans',
@@ -51,11 +51,13 @@ const Navbar = () => (
     {/* Navigation Links Section */}
     <Stack
       direction="row"
-      gap={{ sm: '40px', xs: '20px' }}
       alignItems="center"
       sx={{
-        fontFamily: 'Alegreya',
+        /* THE FIX: Pushes links right and ensures space from the browser edge */
         marginLeft: 'auto',
+        gap: { sm: '40px', xs: '20px' },
+        pr: { sm: '30px', xs: '10px' },
+        fontFamily: 'Alegreya',
         flexShrink: 0
       }}
     >
@@ -65,8 +67,9 @@ const Navbar = () => (
           textDecoration: 'none',
           color: '#fff',
           fontSize: '22px',
-          borderBottom: '2px solid #FF2625',
-          textShadow: '0 0 5px #FF2625, 0 0 10px #FF2625',
+          /* THE FIX: Underline stays pinned to the Home text */
+          borderBottom: '3px solid #FF2625',
+          textShadow: '0 0 5px #FF2625',
           paddingBottom: '3px',
           whiteSpace: 'nowrap'
         }}
@@ -75,14 +78,14 @@ const Navbar = () => (
       </Link>
 
       <a
-        href="/#exercises"
-        className="nav-link-exercises"
+        href="#exercises"
         style={{
           textDecoration: 'none',
           color: '#fff',
           fontSize: '22px',
           transition: '0.3s',
-          whiteSpace: 'nowrap'
+          whiteSpace: 'nowrap',
+          paddingBottom: '6px'
         }}
       >
         Exercises
