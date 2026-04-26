@@ -13,28 +13,32 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
         sx={{ 
           fontSize: { lg: '44px', xs: '25px' }, 
           ml: '20px',
-          color: '#fff',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.2)',
-          fontFamily: 'Josefin Sans'
+          fontFamily: 'Josefin Sans',
+          // Colorful Gradient for the main title
+          background: 'linear-gradient(90deg, #FFFFFF 0%, #FF2625 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          mb: '33px'
         }}
         fontWeight={700}
-        mb="33px"
       >
-        Similar <span style={{ color: '#FF2625', textShadow: '0 0 15px rgba(255, 38, 37, 0.6)' }}>Target Muscle</span> exercises
+        Similar <span style={{ WebkitTextFillColor: '#FF2625', textShadow: '0 0 20px rgba(255, 38, 37, 0.5)' }}>Target Muscle</span> Exercises
       </Typography>
       
       <Stack 
-        className="similar-row" // Targeted by App.css for the 2-column layout
+        className="similar-row" 
         direction="row" 
         sx={{ 
           p: 2, 
           position: 'relative', 
-          background: 'rgba(255, 255, 255, 0.03)', 
+          background: 'rgba(255, 255, 255, 0.02)', 
+          backdropFilter: 'blur(10px)',
           borderRadius: '30px',
           border: '1px solid rgba(255, 255, 255, 0.05)',
           mb: '80px',
-          minHeight: '450px', // Prevents layout jump while loading
-          alignItems: 'center'
+          minHeight: '450px',
+          alignItems: 'center',
+          boxShadow: 'inset 0 0 20px rgba(255, 38, 37, 0.05)'
         }}
       >
         {targetMuscleExercises?.length !== 0 ? (
@@ -50,14 +54,16 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
           fontSize: { lg: '44px', xs: '25px' },
           ml: '20px',
           mt: { lg: '100px', xs: '60px' },
-          color: '#fff',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.2)',
-          fontFamily: 'Josefin Sans'
+          fontFamily: 'Josefin Sans',
+          // Colorful Gradient for the second title
+          background: 'linear-gradient(90deg, #FFFFFF 0%, #00D2FF 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          mb: '33px'
         }}
         fontWeight={700}
-        mb="33px"
       >
-        Similar <span style={{ color: '#00D2FF', textShadow: '0 0 15px rgba(0, 210, 255, 0.6)' }}>Equipment</span> exercises
+        Similar <span style={{ WebkitTextFillColor: '#00D2FF', textShadow: '0 0 20px rgba(0, 210, 255, 0.5)' }}>Equipment</span> Exercises
       </Typography>
       
       <Stack 
@@ -66,11 +72,13 @@ const SimilarExercises = ({ targetMuscleExercises, equipmentExercises }) => {
         sx={{ 
           p: 2, 
           position: 'relative', 
-          background: 'rgba(255, 255, 255, 0.03)', 
+          background: 'rgba(255, 255, 255, 0.02)', 
+          backdropFilter: 'blur(10px)',
           borderRadius: '30px',
           border: '1px solid rgba(255, 255, 255, 0.05)',
           minHeight: '450px',
-          alignItems: 'center'
+          alignItems: 'center',
+          boxShadow: 'inset 0 0 20px rgba(0, 210, 255, 0.05)'
         }}
       >
         {equipmentExercises?.length !== 0 ? (

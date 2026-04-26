@@ -8,8 +8,7 @@ import Loader from './Loader';
 
 const Exercises = ({ exercises, setExercises, bodyPart }) => {
   const [currentPage, setCurrentPage] = useState(1);
-  // Using 6 per page keeps the grid looking balanced and premium
-  const [exercisesPerPage] = useState(6);
+  const [exercisesPerPage] = useState(6); // 3x2 Grid for premium look
 
   useEffect(() => {
     const fetchExercisesData = async () => {
@@ -21,7 +20,6 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
         exercisesData = await fetchData(`https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}?limit=1000`, exerciseOptions);
       }
 
-      // Safety check: ensure we are setting an array
       setExercises(Array.isArray(exercisesData) ? exercisesData : []);
       setCurrentPage(1);
     };
@@ -32,32 +30,38 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
   // Pagination Logic
   const indexOfLastExercise = currentPage * exercisesPerPage;
   const indexOfFirstExercise = indexOfLastExercise - exercisesPerPage;
-  
-  // Guard against non-array values to prevent map errors
   const currentExercises = Array.isArray(exercises) 
     ? exercises.slice(indexOfFirstExercise, indexOfLastExercise) 
     : [];
 
   const paginate = (event, value) => {
     setCurrentPage(value);
-    // Scrolls back up to the "Showing Results" title
-    window.scrollTo({ top: 1100, behavior: 'smooth' });
+
+    // FIX: Dynamic scroll to the top of the results section
+    const resultsSection = document.getElementById('exercises');
+    if (resultsSection) {
+      resultsSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
-  // Show loader while fetching
   if (!exercises?.length) return <Loader />;
 
   return (
     <Box id="exercises" sx={{ mt: { lg: '109px' } }} mt="50px" p="20px">
+      {/* Colorful Animated Typography */}
       <Typography
         variant="h4"
         fontWeight="bold"
         sx={{ 
           fontSize: { lg: '44px', xs: '30px' },
-          color: '#fff',
-          textShadow: '0 0 10px rgba(255, 255, 255, 0.2)',
           mb: '46px',
-          fontFamily: 'Josefin Sans'
+          fontFamily: 'Josefin Sans',
+          // THE FIX: Gradient Colorful Text
+          background: 'linear-gradient(90deg, #FFFFFF 0%, #FF2625 50%, #00D2FF 100%)',
+          WebkitBackgroundClip: 'text',
+          WebkitTextFillColor: 'transparent',
+          textShadow: '0 10px 20px rgba(0,0,0,0.3)',
+          textAlign: { xs: 'center', lg: 'left' }
         }}
       >
         Showing Results
@@ -66,13 +70,12 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
       <Stack
         direction="row"
         sx={{ 
-          gap: { lg: '80px', xs: '40px' }, // Optimized gap for your 380px cards
+          gap: { lg: '80px', xs: '40px' }, 
           justifyContent: 'center'
         }}
         flexWrap="wrap"
       >
         {currentExercises.map((exercise, idx) => (
-          // Use exercise.id as key for better React performance
           <ExerciseCard key={exercise.id || idx} exercise={exercise} />
         ))}
       </Stack>
@@ -92,17 +95,18 @@ const Exercises = ({ exercises, setExercises, bodyPart }) => {
                 fontFamily: 'Josefin Sans',
                 fontSize: '18px',
                 border: '1px solid rgba(255, 255, 255, 0.1)',
+                backgroundColor: 'rgba(255, 255, 255, 0.02)',
                 transition: '0.3s all ease',
                 '&:hover': {
                   backgroundColor: 'rgba(0, 210, 255, 0.2)',
                   borderColor: '#00D2FF',
-                  boxShadow: '0 0 10px #00D2FF'
+                  boxShadow: '0 0 15px #00D2FF'
                 },
                 '&.Mui-selected': {
                   backgroundColor: '#FF2625 !important', 
                   color: '#fff',
                   fontWeight: 'bold',
-                  boxShadow: '0 0 20px #FF2625',
+                  boxShadow: '0 0 25px rgba(255, 38, 37, 0.6)',
                   borderColor: 'transparent'
                 },
               },
