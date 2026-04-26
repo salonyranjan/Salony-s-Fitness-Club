@@ -1,3 +1,5 @@
+# 🏋️‍♂️ Salony’s Fitness Club
+
 [![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://reactjs.org/)
 [![Material UI](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)](https://mui.com/)
 [![RapidAPI](https://img.shields.io/badge/RapidAPI-000000?style=for-the-badge&logo=rapidapi&logoColor=white)](https://rapidapi.com/)
@@ -12,100 +14,120 @@
 </p>
 
 <div align="center">
-  <h1>🏋️‍♂️ Salony's Fitness Club</h1>
+  <h1>🏋️‍♂️ Salony’s Fitness Club</h1>
   <p>
     <b>A Cinematic AI-Driven Fitness Intelligence Terminal</b><br />
-    <i>Discover 1,300+ Exercises with Real-Time YouTube Integration & Performance Analytics</i>
+    <i>Discover 1,300+ exercises with real‑time YouTube integration & performance analytics</i>
   </p>
 
   <p>
-    <b>Salony's Fitness Club</b> is a modern fitness application that helps users discover exercises tailored to specific body parts, target muscles, and equipment. Built with <b>React</b> and <b>Material UI 5</b>, it leverages the <b>ExerciseDB</b> and <b>YouTube Search and Download</b> APIs via RapidAPI to provide high-quality GIFs, technical details, and instructional videos.
+    <b>Salony’s Fitness Club</b> is a modern fitness application that helps users discover exercises tailored to specific body parts, target muscles, and equipment. Built with <b>React</b> and <b>Material UI 5</b>, it leverages the <b>ExerciseDB</b> and <b>YouTube Search and Download</b> APIs via RapidAPI to provide high‑quality GIFs, technical details, and instructional videos.
   </p>
 
   <p>
-    <a href="https://salony-s-fitness-club.vercel.app"><b>Live Dashboard</b></a> •
-    <a href="#features"><b>Core Features</b></a> •
-    <a href="#tech-stack"><b>Tech Stack</b></a>
+    <a href="#1-🚀-live-demo"><b>Live Demo</b></a> •
+    <a href="#2-🚀-core-features"><b>Core Features</b></a> •
+    <a href="#3-🛠️-technical-architecture--stack"><b>Tech Stack</b></a> •
+    <a href="#4-🎨-cinematic-visual-experience"><b>UI/UX</b></a> •
+    <a href="#5-🏗️-project-architecture"><b>Architecture</b></a> •
+    <a href="#6-📦-installation--setup"><b>Installation</b></a> •
+    <a href="#7-🔑-api-configuration-guide"><b>RapidAPI Config</b></a> •
+    <a href="#8-🚀-deployment-protocol"><b>Deployment</b></a> •
+    <a href="#9-🤝-contributing"><b>Contributing</b></a> •
+    <a href="#10-👤-author"><b>Author</b></a>
   </p>
 </div>
 
-<hr />
+---
 
-## 🌐 Live Dashboard
+## 1. 🚀 Live Demo
 
-> **Status:** Operational 🟢  
-> **Host:** Vercel Edge Network  
-> **Link:** [https://salony-s-fitness-club.vercel.app/](https://salony-s-fitness-club.vercel.app/)
+- **Status:** Operational 🟢  
+- **Host:** Vercel Edge Network  
+- **Link:** [https://salony-s-fitness-club.vercel.app/](https://salony-s-fitness-club.vercel.app/)
 
 ---
 
-## 🚀 Core Features
+## 2. 🚀 Core Features
 
-### 🔍 Advanced Neural Search
-Seamlessly query a library of **1,300+ exercises**. The intelligent search engine indexes data based on exercise names, target muscles, and equipment types to provide instant, relevant results.
+### 2.1 🔍 Advanced Neural Search
 
-### 🧬 Biometric Categorization
-Exercises are meticulously segmented into **10+ body part categories** (Chest, Back, Cardio, etc.). This allows users to build targeted routines based on specific biological sectors.
+Seamlessly query a library of **1,300+ exercises**. The intelligent search engine indexes data by exercise names, target muscles, and equipment types to provide instant, relevant results.
 
-### 📹 Real-Time Instructional Mapping
-Leveraging the **YouTube Search & Download API**, the system dynamically maps technical instructional videos to every exercise. Users receive real-time visual guidance to ensure perfect form and safety.
+### 2.2 🧬 Biometric Categorization
 
-### 🦾 Equipment-Aware Suggestions
-The application intelligently identifies the equipment required for a movement and suggests **alternative exercises** within the same muscle group or equipment category.
+Exercises are segmented into **10+ body‑part categories** (Chest, Back, Cardio, etc.). This allows users to build targeted routines based on specific muscle systems.
 
-### 📱 Adaptive Cinematic UI
-A fully responsive terminal experience built with **Material UI 5**. Whether on mobile or desktop, the interface maintains its cinematic glassmorphic aesthetic and high-performance scrolling.
+### 2.3 📹 Real‑Time Instructional Mapping
 
-### ⚡ Performance Optimization
-- **Waterfall Data Fetching:** Optimized API calls to reduce latency.
-- **Lazy Loading:** High-quality GIFs and media assets are loaded only when in view.
-- **Secure Key Management:** Environment-level security for all RapidAPI credentials.
+Leveraging the **YouTube Search & Download API**, the app dynamically maps technical instructional videos to every exercise. Users receive real‑time visual guidance to ensure proper form and safety.
 
----
+### 2.4 🦾 Equipment‑Aware Suggestions
 
-## 🛠️ Technical Architecture & Stack
+The application recognizes required equipment for each movement and suggests **alternative exercises** within the same muscle group or equipment category.
 
-### 🏗️ Frontend Core
-* **React.js (v18):** Utilizing functional components, hooks (`useState`, `useEffect`), and the **Context API** for state management.
-* **Material UI 5:** Implemented for its industrial-grade component library and flexible **Emotion**-based styling engine.
-* **React Router 6:** Managing complex client-side routing and dynamic parameter handling for exercise details.
+### 2.5 📱 Adaptive Cinematic UI
 
-### 🧠 Intelligence & Data Systems
-* **RapidAPI - ExerciseDB:** Primary data source providing structured JSON for over 1,300+ physiological movements and high-res GIFs.
-* **RapidAPI - YouTube Search & Download:** Neural mapping system that fetches real-time instructional media based on exercise metadata.
-* **Fetch API & Waterfall Logic:** Optimized data fetching patterns to handle interdependent API calls with minimal latency.
+A fully responsive terminal experience built with **Material UI 5**. The interface maintains its cinematic glassmorphic aesthetic and high‑performance scrolling on mobile and desktop.
 
-### 🎨 Design & UI/UX
-* **Glassmorphism & Cinematic UI:** Custom CSS3 and MUI transitions to create a premium "Intelligence Terminal" aesthetic.
-* **React Horizontal Scrolling Menu:** Providing a seamless, touch-responsive category navigation experience.
-* **Responsive Engine:** Utilizing MUI breakpoints to ensure a "Code Your Body" experience on all screen dimensions.
+### 2.6 ⚡ Performance Optimization
 
-### 🚀 DevOps & Security
-* **Vercel Edge Network:** Continuous Integration and Deployment (CI/CD) for global high-speed delivery.
-* **Environment Security:** `.env` protection for sensitive RapidAPI credentials to prevent unauthorized access.
-* **Airbnb ESLint Standards:** Ensuring industry-standard code quality, readability, and maintainability.
+- **Waterfall Data Fetching:** Optimized API calls to reduce latency.  
+- **Lazy Loading:** High‑quality GIFs and media assets are loaded only when in view.  
+- **Secure Key Management:** Environment‑level security for all RapidAPI credentials.
 
 ---
 
-## 🎨 Cinematic Visual Experience
+## 3. 🛠️ Technical Architecture & Stack
+
+### 3.1 🏗️ Frontend Core
+
+- **React.js (v18):** Functional components, hooks (`useState`, `useEffect`), and the **Context API** for state management.  
+- **Material UI 5:** Industrial‑grade component library with **Emotion‑based** styling.  
+- **React Router 6:** Client‑side routing and dynamic parameter handling for exercise details.
+
+### 3.2 🧠 Intelligence & Data Systems
+
+- **RapidAPI – ExerciseDB:** Primary data source providing structured JSON for 1,300+ exercises, high‑res GIFs, and metadata. [web:3][web:6]  
+- **RapidAPI – YouTube Search & Download:** Fetches real‑time instructional videos based on exercise names. [web:3]  
+- **Fetch API & Waterfall Logic:** Optimized data fetching patterns for low‑latency response.
+
+### 3.3 🎨 Design & UI/UX
+
+- **Glassmorphism & Cinematic UI:** Custom CSS3 + MUI transitions for a premium “Intelligence Terminal” aesthetic.  
+- **React Horizontal Scrolling Menu:** Touch‑responsive category navigation.  
+- **Responsive Engine:** MUI breakpoints for consistent experience on all screen sizes.
+
+### 3.4 🚀 DevOps & Security
+
+- **Vercel Edge Network:** CI/CD pipeline for global high‑speed delivery. [web:7]  
+- **Environment Security:** `.env`‑protected RapidAPI keys to prevent exposure.  
+- **Airbnb ESLint Standards:** Enforced code quality and maintainability.
+
+---
+
+## 4. 🎨 Cinematic Visual Experience
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/salonyranjan/Salony-s-Fitness-Club/main/src/assets/images/app.png" alt="Salony's Fitness Club UI" width="100%" style="border-radius: 15px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5);">
 </p>
 
-### 🖥️ High-Fidelity UI/UX
-* **Intelligence Terminal Aesthetic:** A premium dark-mode interface featuring glassmorphic cards and high-contrast red accents for a focused, "Command Center" feel.
-* **Fluid Motion System:** Integrated **React Horizontal Scrolling** with custom-engineered navigation arrows for seamless category exploration.
-* **Dynamic Muscle Mapping:** Visual feedback loops that highlight "Target Muscle Systems," making the biological data intuitive and easy to navigate.
-* **Cinematic Banners:** High-impact typography and professional athletic imagery that motivate users the moment the "Terminal" initializes.
+### 4.1 🖥️ High‑Fidelity UI/UX
 
- "Code Your Body, Optimize Your Strength!" — The interface isn't just a website; it's a performance optimization tool designed for the modern athlete.
+- **Intelligence Terminal Aesthetic:** Dark‑mode interface with glassmorphic cards and high‑contrast red accents for a focused “Command Center” feel.  
+- **Fluid Motion System:** Horizontal scrolling with custom navigation arrows for seamless category exploration.  
+- **Dynamic Muscle Mapping:** Visual feedback that highlights “Target Muscle Systems.”  
+- **Cinematic Banners:** High‑impact typography and athletic imagery to motivate users on load.
+
+> “Code Your Body, Optimize Your Strength!” — the interface is not just a website; it’s a performance optimization tool for the modern athlete.
 
 ---
 
-## 🏗️ Project Architecture
+## 5. 🏗️ Project Architecture
 
-The following diagram illustrates the **Uni-Directional Data Flow** and the **External Intelligence Integration** within the terminal:
+### 5.1 📊 Uni‑Directional Data Flow
+
+The terminal follows a **unidirectional data flow** from user input → API calls → React state → UI render. The diagram below shows the external integrations and deployment pipeline:
 
 ```mermaid
 graph TD
@@ -136,7 +158,7 @@ graph TD
     G -->|Production Build| E
     end
 
-    %% High-Contrast Styling for Visibility
+    %% High‑Contrast Styling for Visibility
     classDef default fill:#1a1a1a,stroke:#FF2625,stroke-width:2px,color:#ffffff,font-weight:bold;
     classDef hub fill:#FF2625,stroke:#fff,stroke-width:4px,color:#ffffff,font-weight:bold;
     classDef cloud fill:#2d2d2d,stroke:#0081CB,stroke-width:2px,color:#ffffff,font-weight:bold;
@@ -144,11 +166,10 @@ graph TD
     class B hub;
     class C,D,G cloud;
 ```
----
 
-## 🧠 Data Flow Logic
+### 5.2 🧠 Data Flow Logic
 
-The terminal utilizes a **Synchronized Asynchronous Pattern** to ensure that instructional media is perfectly mapped to the biological exercise data.
+The terminal uses a **synchronized asynchronous pattern** to ensure instructional media is correctly mapped to exercise data:
 
 ```mermaid
 sequenceDiagram
@@ -172,13 +193,12 @@ sequenceDiagram
     Y-->>F: Return YouTube Video Metadata
     F-->>R: Update 'exerciseVideos' State
     
-    Note right of R: Virtual DOM Re-renders with Full Intelligence
+    Note right of R: Virtual DOM Re‑renders with Full Intelligence
 ```
----
 
-## ⚙️ Operational Workflow
+### 5.3 ⚙️ Operational Workflow
 
-This state-machine diagram visualizes the internal logic of the terminal from the initial boot sequence to user-driven exploration:
+This state‑machine diagram shows the internal logic from boot to user interaction:
 
 ```mermaid
 stateDiagram-v2
@@ -195,24 +215,17 @@ stateDiagram-v2
     Render --> Display: Optimized UI Interaction
     Display --> Idle: Clear Query / Reset Terminal
     
-    %% Fixed High-Contrast Styling
+    %% Fixed High‑Contrast Styling
     classDef mainState fill:#1a1a1a,stroke:#333,stroke-width:1px,color:#fff,font-weight:bold
     classDef processing fill:#2d2d2d,stroke:#FF2625,stroke-width:2px,color:#fff
 
     class Initialize,Idle,Render,Display mainState
     class SP processing
 ```
----
 
-## 🏗️ Terminal Folder Structure
+### 5.4 🏗️ Terminal Folder Structure
 
-The project follows a modular directory pattern to ensure high maintainability and clear separation of concerns:
-
----
-
-## 🏗️ Terminal Folder Structure
-
-The project follows a modular directory pattern to ensure high maintainability and clear **Separation of Concerns**:
+The project follows a modular structure for clear separation of concerns:
 
 ```text
 Salony-s-Fitness-Club/
@@ -222,8 +235,8 @@ Salony-s-Fitness-Club/
 │   └── 📄 index.html        # 🏠 Entry point template
 ├── 📁 src/
 │   ├── 🎨 assets/          # 📦 Global media & design assets
-│   │   ├── 📂 icons/       # 🦴 Exercise & body-part icons
-│   │   └── 📂 images/      # 🎬 High-fidelity banners & logos
+│   │   ├── 📂 icons/       # 🦴 Exercise & body‑part icons
+│   │   └── 📂 images/      # 🎬 High‑fidelity banners & logos
 │   ├── 🧩 components/      # ⚙️ Reusable UI Intelligence components
 │   │   ├── 📜 ExerciseCard.js # 🗂️ Dynamic result cards
 │   │   ├── 📜 Navbar.js       # 🧭 Navigation terminal
@@ -231,7 +244,7 @@ Salony-s-Fitness-Club/
 │   │   └── ...             # (Detail, Footer, Loader, etc.)
 │   ├── 📖 pages/           # 🚀 Primary route views
 │   │   ├── 🏠 Home.js         # 📊 Main dashboard
-│   │   └── 📑 ExerciseDetail.js # 🧬 Deep-dive analytics page
+│   │   └── 📑 ExerciseDetail.js # 🧬 Deep‑dive analytics page
 │   ├── 🛠️ utils/           # 🧠 Data processing & API services
 │   │   └── 📜 fetchData.js    # 📡 RapidAPI neural mapping utility
 │   ├── 📜 App.js           # 🛠️ Root component & route manager
@@ -242,119 +255,130 @@ Salony-s-Fitness-Club/
 ├── 📐 vercel.json          # 🚀 Deployment optimization
 └── 📦 package.json         # 📜 Dependency & script manifest
 ```
+
 ---
-## 📦 Installation & Setup
+
+## 6. 📦 Installation & Setup
 
 1. **Clone the repository:**
- ```bash
-git clone [https://github.com/salonyranjan/Salony-s-Fitness-Club.git](https://github.com/salonyranjan/Salony-s-Fitness-Club.git)
-cd Salony-s-Fitness-Club
- ```
-
-2. **Install dependencies:**
- ```bash
- npm install
- ```
-   
-3. **Set up Environment Variables:**
-Create a .env file in the root directory and add your RapidAPI Key:
- ```bash
-REACT_APP_RAPID_API_KEY=your_actual_api_key_here
- ```
-
-4. **Start the development server:**
- ```bash
-npm start
- ```
----
-
-## 🔑 API Configuration Guide
-
-**Salony's Fitness Club** operates as an Intelligence Terminal by synthesizing data from two high-performance external engines via **RapidAPI**. To ensure the terminal functions correctly, follow these configuration steps:
-
-### 📡 Required Endpoints
-
-| System Provider | Role in Terminal | Data Type |
-| :--- | :--- | :--- |
-| **ExerciseDB** | Primary Intelligence | 1,300+ Exercises, Body-part mapping, Motion GIFs |
-| **YouTube Search** | Instructional Media | Real-time video tutorials, Neural metadata mapping |
-
-### 🛠️ Configuration Steps
-
-1. **Acquire Credentials:**
-   Sign up at [RapidAPI.com](https://rapidapi.com) and subscribe to the **ExerciseDB** and **YouTube Search and Download** APIs (both offer comprehensive free tiers).
-
-2. **Terminal Handshake:**
-   In your root directory, ensure your `.env` file contains your unique API key. This key is used for both headers to maintain a clean architecture.
-   ```env
-    REACT_APP_RAPID_API_KEY=your_key_generated_by_rapidapi
-    ```
-3. **Rate Limit Awareness:**
-   The terminal is optimized with asynchronous fetching to minimize API calls. However, be aware of the daily limits on the free tiers to ensure uninterrupted "Neural Search" functionality.
-
----
-
-## 🚀 Deployment Protocol
-
-The **Salony's Fitness Club** terminal is architected for high-availability and global performance, utilizing a modern CI/CD pipeline for seamless delivery.
-
-### 🌐 Live Production Environment
-The application is currently deployed and operational on the **Vercel Edge Network**.
-
-* **Status:** 🟢 Operational
-* **Deployment URL:** [https://salony-s-fitness-club.vercel.app/](https://salony-s-fitness-club.vercel.app/)
-* **Infrastructure:** Global Edge Caching & Automated SSL Encryption
-
-### 🔄 CI/CD Pipeline
-Every commit to the `main` branch undergoes an automated build and deployment process:
-
-1.  **⚡ Trigger:** Push to GitHub Repository.
-2.  **🔍 Optimization:** Vercel optimizes assets (images/JS) and runs the `npm run build` sequence.
-3.  **📡 Deployment:** The production-ready bundle is served via a global Content Delivery Network (CDN) for minimum latency.
-4.  **🔐 Security:** Environment variables (RapidAPI keys) are injected at the edge, ensuring sensitive credentials never touch the client-side source code.
-
-### 🛠️ Manual Deployment
-To deploy your own instance of the terminal:
 
 ```bash
-# 1. Install the Vercel CLI
+git clone https://github.com/salonyranjan/Salony-s-Fitness-Club.git
+cd Salony-s-Fitness-Club
+```
+
+2. **Install dependencies:**
+
+```bash
+npm install
+```
+
+3. **Set up Environment Variables:**
+
+Create a `.env` file in the root directory and add your RapidAPI key:
+
+```env
+REACT_APP_RAPID_API_KEY=your_actual_api_key_here
+```
+
+4. **Start the development server:**
+
+```bash
+npm start
+```
+
+---
+
+## 7. 🔑 API Configuration Guide
+
+### 7.1 📡 Required Endpoints
+
+| System Provider          | Role in Terminal                            | Data Type                                      |
+|--------------------------|---------------------------------------------|-----------------------------------------------|
+| **ExerciseDB** [web:3][web:6][web:9] | Primary exercise database                   | 1,300+ exercises, body‑part mapping, GIFs     |
+| **YouTube Search** [web:3]           | Instructional media lookup                  | Real‑time video tutorials, metadata           |
+
+### 7.2 🛠️ Configuration Steps
+
+1. **Acquire Credentials:**  
+   Sign up at [RapidAPI.com](https://rapidapi.com) and subscribe to the **ExerciseDB** and **YouTube Search and Download** APIs (both offer robust free tiers). [web:6][web:9]
+
+2. **Terminal Handshake:**  
+   In your root directory, ensure your `.env` file contains your unique API key used for both headers:
+
+   ```env
+   REACT_APP_RAPID_API_KEY=your_key_generated_by_rapidapi
+   ```
+
+3. **Rate Limit Awareness:**  
+   The app is optimized with asynchronous fetching to minimize API calls. However, be aware of free‑tier daily limits to ensure uninterrupted neural search.
+
+---
+
+## 8. 🚀 Deployment Protocol
+
+### 8.1 🌐 Live Production Environment
+
+- **Status:** 🟢 Operational  
+- **Deployment URL:** [https://salony-s-fitness-club.vercel.app](https://salony-s-fitness-club.vercel.app)  
+- **Infrastructure:** Vercel Edge Network with global CDN and automated SSL.
+
+### 8.2 🔄 CI/CD Pipeline
+
+Every commit to the `main` branch triggers an automated build:
+
+1. **🚀 Trigger:** Push to GitHub Repository.  
+2. **🔍 Optimization:** Vercel runs `npm run build` and optimizes assets.  
+3. **📡 Deployment:** Bundle is served via the global CDN.  
+4. **🔐 Security:** Environment variables (RapidAPI keys) are injected at the edge, never exposed in client‑side code.
+
+### 8.3 🛠️ Manual Deployment
+
+To deploy your own instance:
+
+```bash
+# 1. Install Vercel CLI
 npm i -g vercel
 
-# 2. Authenticate and Initialize
+# 2. Authenticate
 vercel login
 
-# 3. Deploy to Production
+# 3. Deploy to production
 vercel --prod
 ```
 
 ---
 
-## 🤝 Contributing to the Intelligence Terminal
+## 9. 🤝 Contributing to the Intelligence Terminal
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Contributions are what make the open‑source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-### 🛠️ Development Workflow
+### 9.1 🛠️ Development Workflow
 
-1. **🍴 Fork the Project:** Create your own copy of the repository.
+1. **🍴 Fork the Project:** Create your own copy of the repository.  
 2. **🌿 Create a Feature Branch:**
-    ```bash
-    git checkout -b feature/AmazingFeature
-    ```
+
+   ```bash
+   git checkout -b feature/AmazingFeature
+   ```
+
 3. **💻 Commit Your Changes:**
-    ```bash
-    git commit -m 'Add some AmazingFeature'
-    ```bash
+
+   ```bash
+   git commit -m 'Add some AmazingFeature'
+   ```
 
 4. **🚀 Push to the Branch:**
-    ```bash
-   git push origin feature/AmazingFeature
-    ```
 
-5. **🔍 Open a Pull Request:** Submit your changes for neural review.
+   ```bash
+   git push origin feature/AmazingFeature
+   ```
+
+5. **🔍 Open a Pull Request:** Submit your changes for review.
 
 ---
 
-## 👤 Author
+## 10. 👤 Author
 
 **Salony Ranjan**  
 
@@ -363,13 +387,6 @@ Contributions are what make the open-source community such an amazing place to l
     <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
   </a>
   <a href="https://github.com/salonyranjan">
-    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
-  </a>
-  <a href="mailto:salonyranjan@gmail.com">
-    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
-  </a>
-</p>
-
----
+    <img src="https://img.shields.io/badge/GitHub-18171
     
     
