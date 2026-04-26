@@ -208,33 +208,39 @@ stateDiagram-v2
 
 The project follows a modular directory pattern to ensure high maintainability and clear separation of concerns:
 
+---
+
+## 🏗️ Terminal Folder Structure
+
+The project follows a modular directory pattern to ensure high maintainability and clear **Separation of Concerns**:
+
 ```text
 Salony-s-Fitness-Club/
-├── public/                 # Static assets & manifest files
-│   ├── banner-hero.png     # Primary terminal hero image
-│   ├── favicon.ico
-│   └── index.html          # Entry point template
-├── src/
-│   ├── assets/             # Global media & design assets
-│   │   ├── icons/          # Exercise & body-part icons
-│   │   └── images/         # High-fidelity banners & logos
-│   ├── components/         # Reusable UI Intelligence components
-│   │   ├── ExerciseCard.js # Dynamic result cards
-│   │   ├── Navbar.js       # Navigation terminal
-│   │   ├── SearchExercises.js # Intelligence search bar
+├── 📁 public/              # 🌐 Static assets & manifest files
+│   ├── 🖼️ banner-hero.png   # ⚡ Primary terminal hero image
+│   ├── 📑 favicon.ico
+│   └── 📄 index.html        # 🏠 Entry point template
+├── 📁 src/
+│   ├── 🎨 assets/          # 📦 Global media & design assets
+│   │   ├── 📂 icons/       # 🦴 Exercise & body-part icons
+│   │   └── 📂 images/      # 🎬 High-fidelity banners & logos
+│   ├── 🧩 components/      # ⚙️ Reusable UI Intelligence components
+│   │   ├── 📜 ExerciseCard.js # 🗂️ Dynamic result cards
+│   │   ├── 📜 Navbar.js       # 🧭 Navigation terminal
+│   │   ├── 📜 SearchExercises.js # 🔍 Intelligence search bar
 │   │   └── ...             # (Detail, Footer, Loader, etc.)
-│   ├── pages/              # Primary route views
-│   │   ├── Home.js         # Main dashboard
-│   │   └── ExerciseDetail.js # Deep-dive analytics page
-│   ├── utils/              # Data processing & API services
-│   │   └── fetchData.js    # RapidAPI neural mapping utility
-│   ├── App.js              # Root component & route manager
-│   ├── App.css             # Glassmorphic terminal styling
-│   └── index.js            # React DOM initialization
-├── .env                    # Secure credential storage
-├── .eslintrc.js            # Airbnb code quality configuration
-├── vercel.json             # Deployment optimization settings
-└── package.json            # Dependency & script manifest
+│   ├── 📖 pages/           # 🚀 Primary route views
+│   │   ├── 🏠 Home.js         # 📊 Main dashboard
+│   │   └── 📑 ExerciseDetail.js # 🧬 Deep-dive analytics page
+│   ├── 🛠️ utils/           # 🧠 Data processing & API services
+│   │   └── 📜 fetchData.js    # 📡 RapidAPI neural mapping utility
+│   ├── 📜 App.js           # 🛠️ Root component & route manager
+│   ├── 🎨 App.css          # 💅 Glassmorphic terminal styling
+│   └── 📜 index.js         # 🏁 React DOM initialization
+├── 🔐 .env                 # 🔑 Secure credential storage
+├── 📏 .eslintrc.js         # 💅 Airbnb code quality config
+├── 📐 vercel.json          # 🚀 Deployment optimization
+└── 📦 package.json         # 📜 Dependency & script manifest
 ```
 ---
 ## 📦 Installation & Setup
@@ -287,3 +293,83 @@ npm start
    The terminal is optimized with asynchronous fetching to minimize API calls. However, be aware of the daily limits on the free tiers to ensure uninterrupted "Neural Search" functionality.
 
 ---
+
+## 🚀 Deployment Protocol
+
+The **Salony's Fitness Club** terminal is architected for high-availability and global performance, utilizing a modern CI/CD pipeline for seamless delivery.
+
+### 🌐 Live Production Environment
+The application is currently deployed and operational on the **Vercel Edge Network**.
+
+* **Status:** 🟢 Operational
+* **Deployment URL:** [https://salony-s-fitness-club.vercel.app/](https://salony-s-fitness-club.vercel.app/)
+* **Infrastructure:** Global Edge Caching & Automated SSL Encryption
+
+### 🔄 CI/CD Pipeline
+Every commit to the `main` branch undergoes an automated build and deployment process:
+
+1.  **⚡ Trigger:** Push to GitHub Repository.
+2.  **🔍 Optimization:** Vercel optimizes assets (images/JS) and runs the `npm run build` sequence.
+3.  **📡 Deployment:** The production-ready bundle is served via a global Content Delivery Network (CDN) for minimum latency.
+4.  **🔐 Security:** Environment variables (RapidAPI keys) are injected at the edge, ensuring sensitive credentials never touch the client-side source code.
+
+### 🛠️ Manual Deployment
+To deploy your own instance of the terminal:
+
+```bash
+# 1. Install the Vercel CLI
+npm i -g vercel
+
+# 2. Authenticate and Initialize
+vercel login
+
+# 3. Deploy to Production
+vercel --prod
+```
+
+---
+
+## 🤝 Contributing to the Intelligence Terminal
+
+Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+### 🛠️ Development Workflow
+
+1. **🍴 Fork the Project:** Create your own copy of the repository.
+2. **🌿 Create a Feature Branch:**
+    ```bash
+    git checkout -b feature/AmazingFeature
+    ```
+3. **💻 Commit Your Changes:**
+    ```bash
+    git commit -m 'Add some AmazingFeature'
+    ```bash
+
+4. **🚀 Push to the Branch:**
+    ```bash
+   git push origin feature/AmazingFeature
+    ```
+
+5. **🔍 Open a Pull Request:** Submit your changes for neural review.
+
+---
+
+## 👤 Author
+
+**Salony Ranjan**  
+
+<p align="left">
+  <a href="https://www.linkedin.com/in/salony-ranjan-b63200280/">
+    <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" />
+  </a>
+  <a href="https://github.com/salonyranjan">
+    <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" />
+  </a>
+  <a href="mailto:salonyranjan@gmail.com">
+    <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" />
+  </a>
+</p>
+
+---
+    
+    
