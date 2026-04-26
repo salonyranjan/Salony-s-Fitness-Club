@@ -90,7 +90,7 @@ A fully responsive terminal experience built with **Material UI 5**. Whether on 
 ## 🎨 Cinematic Visual Experience
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/salonyranjan/Salony-s-Fitness-Club/main/src/assets/images/readme.png" alt="Salony's Fitness Club UI" width="100%" style="border-radius: 15px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5);">
+  <img src="https://raw.githubusercontent.com/salonyranjan/Salony-s-Fitness-Club/main/src/assets/images/app.png" alt="Salony's Fitness Club UI" width="100%" style="border-radius: 15px; box-shadow: 0px 10px 30px rgba(0,0,0,0.5);">
 </p>
 
 ### 🖥️ High-Fidelity UI/UX
