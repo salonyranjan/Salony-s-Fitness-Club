@@ -39,6 +39,36 @@
 </div>
 
 ---
+## 📋 Table of Contents
+
+| # | Section | Description |
+|---|---------|-------------|
+| 1 | [🚀 Live Demo](#1--live-demo) | Live deployment link & status |
+| 2 | [✨ Core Features](#2--core-features) | Key capabilities of the app |
+| &nbsp;&nbsp;2.1 | [🔍 Advanced Neural Search](#21--advanced-neural-search) | Smart exercise search engine |
+| &nbsp;&nbsp;2.2 | [🧬 Biometric Categorization](#22--biometric-categorization) | Body-part based filtering |
+| &nbsp;&nbsp;2.3 | [📹 Real‑Time Instructional Mapping](#23--realtime-instructional-mapping) | YouTube video integration |
+| &nbsp;&nbsp;2.4 | [🦾 Equipment‑Aware Suggestions](#24--equipmentaware-suggestions) | Alternative exercise engine |
+| &nbsp;&nbsp;2.5 | [📱 Adaptive Cinematic UI](#25--adaptive-cinematic-ui) | Responsive glassmorphic interface |
+| &nbsp;&nbsp;2.6 | [⚡ Performance Optimization](#26--performance-optimization) | Lazy loading & secure key mgmt |
+| 3 | [🛠️ Technical Architecture & Stack](#3-️-technical-architecture--stack) | Full tech stack breakdown |
+| &nbsp;&nbsp;3.1 | [🏗️ Frontend Core](#31-️-frontend-core) | React, MUI, Router |
+| &nbsp;&nbsp;3.2 | [🧠 Intelligence & Data Systems](#32--intelligence--data-systems) | API & data fetching |
+| &nbsp;&nbsp;3.3 | [🎨 Design & UI/UX](#33--design--uiux) | Glassmorphism & responsiveness |
+| &nbsp;&nbsp;3.4 | [🚀 DevOps & Security](#34--devops--security) | CI/CD, env vars, ESLint |
+| 4 | [🎨 Cinematic Visual Experience](#4--cinematic-visual-experience) | UI screenshots & design philosophy |
+| 5 | [🏗️ Project Architecture](#5-️-project-architecture) | Data flow & folder structure |
+| &nbsp;&nbsp;5.1 | [📊 Uni‑Directional Data Flow](#51--unidirectional-data-flow) | System integration diagram |
+| &nbsp;&nbsp;5.2 | [🧠 Data Flow Logic](#52--data-flow-logic) | Sequence diagram |
+| &nbsp;&nbsp;5.3 | [⚙️ Operational Workflow](#53-️-operational-workflow) | State machine diagram |
+| &nbsp;&nbsp;5.4 | [🏗️ Folder Structure](#54-️-terminal-folder-structure) | Project directory layout |
+| 6 | [📦 Installation & Setup](#6--installation--setup) | Local development guide |
+| 7 | [🔑 API Configuration Guide](#7--api-configuration-guide) | RapidAPI setup & endpoints |
+| 8 | [🚀 Deployment Protocol](#8--deployment-protocol) | Vercel CI/CD & manual deploy |
+| 9 | [🤝 Contributing](#9--contributing-to-the-intelligence-terminal) | How to contribute |
+| 10 | [👤 Author](#10--author) | About the developer |
+
+---
 
 ## 1. 🚀 Live Demo
 
